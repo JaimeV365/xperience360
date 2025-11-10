@@ -44,21 +44,21 @@ jobs:
           find . -name "package.json" -type f 2>/dev/null | head -5
       
       - name: Install dependencies
-        working-directory: 'xperience360'
+        working-directory: 'OneDrive/Documents/Xperience 360/Website/xperience-360.com/New Website Project/xperience360'
         run: npm ci
       
       - name: Generate posts.json
-        working-directory: 'xperience360'
+        working-directory: 'OneDrive/Documents/Xperience 360/Website/xperience-360.com/New Website Project/xperience360'
         run: node scripts/generate-posts.js
       
       - name: Build Next.js
-        working-directory: 'xperience360'
+        working-directory: 'OneDrive/Documents/Xperience 360/Website/xperience-360.com/New Website Project/xperience360'
         run: npm run build
         env:
           NODE_ENV: production
       
       - name: Verify build output
-        working-directory: 'xperience360'
+        working-directory: 'OneDrive/Documents/Xperience 360/Website/xperience-360.com/New Website Project/xperience360'
         run: |
           if [ ! -d "out" ]; then
             echo "Error: 'out' directory not found after build"
@@ -73,7 +73,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'xperience360/out'
+          path: 'OneDrive/Documents/Xperience 360/Website/xperience-360.com/New Website Project/xperience360/out'
 
   deploy:
     environment:
