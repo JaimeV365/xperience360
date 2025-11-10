@@ -28,8 +28,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: 'xperience360/package-lock.json'
+      
+      - name: Verify project structure
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Listing xperience360 directory:"
+          ls -la xperience360/ | head -10
+          echo "Checking for package.json:"
+          test -f xperience360/package.json && echo "✅ package.json found!" || echo "❌ package.json NOT found"
       
       - name: Install dependencies
         working-directory: 'xperience360'
