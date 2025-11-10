@@ -28,23 +28,25 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: 'xperience360/package-lock.json'
       
       - name: Install dependencies
-        working-directory: 'OneDrive/Documents/Xperience 360/Website/xperience-360.com/New Website Project/xperience360'
+        working-directory: 'xperience360'
         run: npm ci
       
       - name: Generate posts.json
-        working-directory: 'OneDrive/Documents/Xperience 360/Website/xperience-360.com/New Website Project/xperience360'
+        working-directory: 'xperience360'
         run: node scripts/generate-posts.js
       
       - name: Build Next.js
-        working-directory: 'OneDrive/Documents/Xperience 360/Website/xperience-360.com/New Website Project/xperience360'
+        working-directory: 'xperience360'
         run: npm run build
         env:
           NODE_ENV: production
       
       - name: Verify build output
-        working-directory: 'OneDrive/Documents/Xperience 360/Website/xperience-360.com/New Website Project/xperience360'
+        working-directory: 'xperience360'
         run: |
           if [ ! -d "out" ]; then
             echo "Error: 'out' directory not found after build"
@@ -59,7 +61,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'OneDrive/Documents/Xperience 360/Website/xperience-360.com/New Website Project/xperience360/out'
+          path: 'xperience360/out'
 
   deploy:
     environment:
