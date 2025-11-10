@@ -28,9 +28,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
       
       - name: Install dependencies
-        run: npm install
+        run: npm ci
       
       - name: Generate posts.json
         run: node scripts/generate-posts.js
@@ -39,6 +40,15 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
+      
+      - name: Verify build output
+        run: |
+          if [ ! -d "out" ]; then
+            echo "Error: 'out' directory not found after build"
+            exit 1
+          fi
+          echo "Build output verified. Contents:"
+          ls -la out/ | head -20
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
