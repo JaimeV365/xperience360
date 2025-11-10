@@ -31,12 +31,33 @@ jobs:
       
       - name: Verify project structure
         run: |
-          echo "Current directory:"
+          echo "=== Current directory ==="
           pwd
-          echo "Listing xperience360 directory:"
-          ls -la xperience360/ | head -10
-          echo "Checking for package.json:"
-          test -f xperience360/package.json && echo "✅ package.json found!" || echo "❌ package.json NOT found"
+          echo ""
+          echo "=== Files in current directory ==="
+          ls -la
+          echo ""
+          echo "=== Checking for xperience360 folder ==="
+          if [ -d "xperience360" ]; then
+            echo "✅ xperience360 folder exists"
+            echo "Files in xperience360/:"
+            ls -la xperience360/ | head -15
+            echo ""
+            if [ -f "xperience360/package.json" ]; then
+              echo "✅ package.json found at xperience360/package.json"
+            else
+              echo "❌ package.json NOT found in xperience360/"
+            fi
+          else
+            echo "❌ xperience360 folder does NOT exist"
+          fi
+          echo ""
+          echo "=== Checking for package.json in root ==="
+          if [ -f "package.json" ]; then
+            echo "✅ package.json found in root directory"
+          else
+            echo "❌ package.json NOT found in root"
+          fi
       
       - name: Install dependencies
         working-directory: 'xperience360'
