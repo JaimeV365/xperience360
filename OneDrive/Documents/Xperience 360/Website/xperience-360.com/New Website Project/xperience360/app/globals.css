@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #c49102;
+  --color-dark: #111111;
+  --color-dark-light: #1a1a1a;
+}
+
+@layer base {
+  * {
+    @apply border-gray-300 dark:border-gray-600;
+  }
+  
+  body {
+    @apply bg-white dark:bg-dark text-dark dark:text-gray-100;
+    @apply font-sans antialiased;
+    @apply transition-colors duration-200;
+    /* Cross-browser font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  html {
+    @apply scroll-smooth;
+    /* Cross-browser scroll behavior */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* Logo filter for dark mode - convert to mustard yellow (#c49102) */
+  .dark .logo-filter {
+    /* Cross-browser filter support */
+    -webkit-filter: invert(1) brightness(0.65) sepia(1) saturate(4) hue-rotate(5deg) brightness(1.1);
+    filter: invert(1) brightness(0.65) sepia(1) saturate(4) hue-rotate(5deg) brightness(1.1);
+  }
+  
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+    /* Cross-browser focus styles */
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+  
+  /* Fallback for browsers that don't support :focus-visible */
+  *:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+  
+  /* Remove focus outline for mouse users on non-keyboard elements */
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
+  
+  /* Skip to main content link */
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4;
+    @apply focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white;
+    @apply focus:rounded-md focus:font-semibold;
+  }
+}
+
+@layer components {
+  /* Button styles */
+  .btn-primary {
+    @apply px-6 py-3 bg-primary text-white rounded-md;
+    @apply font-semibold transition-all duration-200;
+    @apply hover:bg-primary-dark focus:outline-2 focus:outline-offset-2 focus:outline-primary;
+    @apply active:scale-95;
+    @apply min-h-[44px] min-w-[44px];
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-transparent border-2 border-primary text-primary rounded-md;
+    @apply font-semibold transition-all duration-200;
+    @apply hover:bg-primary hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-primary;
+    @apply active:scale-95;
+    @apply min-h-[44px] min-w-[44px];
+  }
+  
+  /* Link styles */
+  .link-primary {
+    @apply text-primary hover:text-primary-dark underline-offset-4;
+    @apply focus:outline-2 focus:outline-offset-2 focus:outline-primary focus:rounded;
+    @apply transition-colors duration-200;
+  }
+  
+  /* Container */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Typography */
+  .heading-1 {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-bold font-sans;
+    @apply text-dark dark:text-white leading-tight;
+  }
+  
+  .heading-2 {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold font-sans;
+    @apply text-dark dark:text-white leading-tight;
+  }
+  
+  .heading-3 {
+    @apply text-2xl sm:text-3xl font-semibold font-sans;
+    @apply text-dark dark:text-white;
+  }
+  
+  .body-text {
+    @apply text-base sm:text-lg leading-relaxed;
+    @apply text-gray-700 dark:text-gray-300;
+  }
+  
+  /* Campaign Performance Summary Table */
+  .summary-table {
+    @apply w-full border-collapse bg-white dark:bg-dark-light;
+    @apply shadow-lg rounded-lg overflow-hidden my-8;
+    @apply border border-gray-200 dark:border-gray-700;
+  }
+  
+  .summary-table th {
+    @apply bg-[#014E46] text-white px-4 py-3 text-left;
+    @apply font-semibold;
+  }
+  
+  .summary-table td {
+    @apply px-4 py-3 border-b border-gray-200 dark:border-gray-700;
+    @apply text-gray-700 dark:text-gray-300;
+  }
+  
+  .summary-table tr:last-child td {
+    @apply border-b-0;
+  }
+  
+  .summary-table tbody tr:nth-child(even) {
+    @apply bg-gray-50 dark:bg-dark;
+  }
+  
+  .summary-table .winner {
+    @apply font-bold text-[#014E46] dark:text-[#4a9b8e];
+  }
+  
+  .summary-table .total-row {
+    @apply bg-[#f0f7f6] dark:bg-[#1a2e2b] font-bold;
+  }
+  
+  .summary-table .total-row .winner {
+    @apply text-[#014E46] dark:text-[#4a9b8e];
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

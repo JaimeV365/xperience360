@@ -2,10 +2,10 @@
 title: "Think before surveying customers"
 date: "2023-08-12 13:14:00"
 slug: "think-before-surveying-customers"
-author: "xperience-360.com"
-excerpt: ""
+author: "Jaime Valle"
+excerpt: "Learn how to effectively gather feedback through surveys and other effective methods to improve customer experience, gaining valuable insights."
 categories: ["Blog"]
-tags: ["complaints", "feedback", "insight", "process", "Survey"]
+tags: ["complaints", "feedback", "insight", "process", "Survey", "customer experience", "CX", "survey fatigue", "customer feedback"]
 ---
 
 A lot of my clients approach me asking for advice and support to launch surveys to gather insights and feedback from their customers.
@@ -26,12 +26,12 @@ Surveys should only pose questions that are necessary and cannot be answered in 
 
 Data, for instance, is a powerful source of insights that should be examined before engaging with customers and potentially wasting their time. This includes their login history, interactions with support teams, complaints, purchases, and returns. Companies have access to a wealth of data that can provide valuable insights into how their customers behave and interact.
 
-I personally love complaints. Having a good [complaints process](https://xperience-360.com/contact-us/) in place provides a company with valuable feedback, uncovers potentially harmful issues for a significant portion of customers, and most importantly, provides a clear list of issues to fix as soon as possible.
+I personally love complaints. Having a good [complaints process](/the-critical-role-of-a-complaints-process-in-enhancing-customer-experience) in place provides a company with valuable feedback, uncovers potentially harmful issues for a significant portion of customers, and most importantly, provides a clear list of issues to fix as soon as possible.
 
 The marketing directors I often talk to love sharing successful stories. Dramatic case studies that began with negative feedback but ended with improvements for hundreds or thousands of customers are powerful stories to tell. Complaints can provide that kind of story. We only need a good process in place to receive, work on, take action on, and audit them. Once everything is resolved, we can proudly showcase them as solid case studies that demonstrate our commitment to customer experience.
 
 In conclusion, it is beneficial to conduct customer surveys to gather their feedback about our brand. However, it's important to note that surveys should not be the sole method of gathering customer feedback. We should integrate surveys with other strategies and resources to effectively listen to our customers.
 
-![Jaime Valle picture](https://xperience-360.com/wp-content/uploads/2024/08/TERESA-MONROE-20231211-PDV-026-small-150x150.png)Jaime Valle
+![Jaime Valle picture](/images/TERESA-MONROE-20231211-PDV-026-small.png)Jaime Valle
 
 

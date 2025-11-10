@@ -2,10 +2,10 @@
 title: "Why Forcing Survey Responses Destroys Your Data"
 date: "2025-04-28 14:14:21"
 slug: "why-forcing-survey-responses-destroys-your-data"
-author: "xperience-360.com"
-excerpt: ""
+author: "Jaime Valle"
+excerpt: "I received a survey from the BBC today. Probably like millions of other people. Like everyone else, I don't respond to every survey in my inbox, but I actually wanted to participate in this one."
 categories: ["Blog"]
-tags: ["BBC", "CustomerExperience", "CustomerFeedback", "CXMistakes", "DataQuality", "MarketResearch", "ResearchBestPractices", "SurveyDesign", "SurveyErrors", "SurveyFatigue"]
+tags: ["BBC", "customer experience", "customer feedback", "CX mistakes", "data quality", "market research", "research best practices", "survey design", "survey errors", "survey fatigue"]
 ---
 
 I received a survey from the BBC today. Probably like millions of other people.
@@ -26,7 +26,7 @@ In other words, I was **forced** to have an opinion about everything the BBC ask
 
 This is a very common mistake companies make when designing surveys: they assume that customers are as invested in the questionnaire as the team that designed it. Spoiler alert: they're not.
 
-![BBC survey page with 22 errors](https://xperience-360.com/wp-content/uploads/2025/04/BBC-survey-1024x974.png)
+![BBC survey page with 22 errors](/images/BBC-survey.png)
 
 *Respondents can't submit their honest answers.*
 
@@ -49,5 +49,3 @@ Instead:
 
 
 It's a hard lesson that many companies, including, sadly, today, the BBC, still haven't learned.
-
-#CustomerExperience #CX #Surveys #DataQuality #Research
