@@ -24,6 +24,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
+      - name: List repository structure
+        run: |
+          echo "=== Repository root ==="
+          pwd
+          echo ""
+          echo "=== Top-level files and folders ==="
+          ls -la
+          echo ""
+          echo "=== Looking for xperience360 folder ==="
+          if [ -d "xperience360" ]; then
+            echo "✅ Found xperience360 folder"
+            echo "Contents:"
+            ls -la xperience360/ | head -20
+          else
+            echo "❌ xperience360 folder NOT found"
+          fi
+          echo ""
+          echo "=== Looking for package.json ==="
+          find . -name "package.json" -type f | head -5
+      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
