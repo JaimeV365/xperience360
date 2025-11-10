@@ -252,7 +252,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <div className="flex-1">
               <h3 className="text-lg font-bold mb-2 dark:text-white">About the Author</h3>
               <p className="body-text mb-3 text-sm dark:text-white">
-                <strong>Jaime Valle</strong> is a senior Customer Experience (CX) consultant who helps organisations see their business through their customers' eyes, turning customer insight into measurable growth.
+                <strong>Jaime Valle</strong> is a senior Customer Experience (CX) consultant who helps organisations see their business through their customers&apos; eyes, turning customer insight into measurable growth.
               </p>
               <a
                 href="https://www.linkedin.com/in/jaimevuk/"

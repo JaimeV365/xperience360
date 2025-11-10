@@ -55,7 +55,7 @@ export default function AboutPage() {
             <h2 className="heading-2">Multilingual Expertise</h2>
           </div>
           <p className="body-text mb-6">
-            Our international consultants speak your language and your customers' language. 
+            Our international consultants speak your language and your customers&apos; language. 
             We understand cultural nuances and local market dynamics, ensuring that your 
             customer experience strategies resonate with your target audience.
           </p>

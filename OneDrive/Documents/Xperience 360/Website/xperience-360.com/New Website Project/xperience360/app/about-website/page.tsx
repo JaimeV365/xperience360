@@ -26,7 +26,7 @@ export default function AboutWebsitePage() {
         <h1 className="heading-1 mb-6">About This Website</h1>
         <p className="body-text text-xl mb-12">
           We believe in building websites that respect your privacy, protect your data, and are accessible to everyone. 
-          Here's how we've designed this site with these principles in mind.
+          Here&apos;s how we&apos;ve designed this site with these principles in mind.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
@@ -42,7 +42,7 @@ export default function AboutWebsitePage() {
             </div>
             <h2 className="heading-3 mb-4">No Cookies</h2>
             <p className="body-text">
-              We don't use tracking cookies or store personal data. Your browsing remains private and anonymous. 
+              We don&apos;t use tracking cookies or store personal data. Your browsing remains private and anonymous. 
               No cookie consent banners, no data collection, just a clean browsing experience.
             </p>
           </div>
@@ -59,8 +59,8 @@ export default function AboutWebsitePage() {
             </div>
             <h2 className="heading-3 mb-4">No Tracking</h2>
             <p className="body-text">
-              We don't track your behavior, collect analytics, or share your data with third parties. 
-              Your visit is completely private—we don't know what pages you view or how long you stay.
+              We don&apos;t track your behavior, collect analytics, or share your data with third parties. 
+              Your visit is completely private—we don&apos;t know what pages you view or how long you stay.
             </p>
           </div>
 
@@ -106,7 +106,7 @@ export default function AboutWebsitePage() {
             Your data is yours, and we have no right to collect, track, or monetise it without your explicit consent.
           </p>
           <p className="body-text mb-4">
-            Accessibility isn't optional—it's a fundamental right. By designing with accessibility in mind from the start, 
+            Accessibility isn&apos;t optional—it&apos;s a fundamental right. By designing with accessibility in mind from the start, 
             we ensure that our content is available to everyone, regardless of their abilities or the technology they use.
           </p>
           <p className="body-text">

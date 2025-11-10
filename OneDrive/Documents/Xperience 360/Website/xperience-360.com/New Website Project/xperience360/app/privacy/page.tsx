@@ -17,7 +17,7 @@ export default function PrivacyPage() {
             Last updated: November 7, 2025
           </p>
           <p className="body-text mb-6">
-            Xperience 360 ("we", "our", or "us") is committed to protecting your privacy. 
+            Xperience 360 (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy. 
             This Privacy Policy explains how we collect, use, and safeguard your information 
             when you visit our website.
           </p>

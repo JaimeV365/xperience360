@@ -170,7 +170,7 @@ export default function Search() {
           ) : (
             <div className="p-8 text-center">
               <p className="text-gray-600 dark:text-gray-400">
-                No results found for "{searchQuery}"
+                No results found for &quot;{searchQuery}&quot;
               </p>
             </div>
           )}
