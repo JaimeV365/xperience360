@@ -533,7 +533,7 @@ export async function getPostContent(content: string): Promise<string> {
         // Split content into intro paragraph and list
         const parts = cleaned.split(/<li>/)
         const intro = parts[0].replace(/<br>\s*$/, '').trim()
-        const listItems = parts.slice(1).map(item => {
+        const listItems = parts.slice(1).map((item: string) => {
           const text = item.replace(/<\/li>.*$/, '').trim()
           return `<li>${text}</li>`
         }).join('')
