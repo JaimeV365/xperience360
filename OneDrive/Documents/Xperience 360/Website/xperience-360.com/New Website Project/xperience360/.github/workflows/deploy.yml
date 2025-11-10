@@ -32,17 +32,11 @@ jobs:
       - name: Install dependencies
         run: npm install
       
-      - name: List files
-        run: ls -la
-      
-      - name: Check scripts directory
-        run: ls -la scripts/ || echo "Scripts directory not found"
-      
       - name: Generate posts.json
-        run: node scripts/generate-posts.js || echo "generate-posts failed"
+        run: node scripts/generate-posts.js
       
       - name: Build Next.js
-        run: npm run build || (echo "Build failed" && exit 1)
+        run: npm run build
         env:
           NODE_ENV: production
       
