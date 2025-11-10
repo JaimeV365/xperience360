@@ -2,6 +2,8 @@
 
 Modern, accessible, SEO-optimized website for Xperience 360 CX consulting.
 
+**Live Site:** https://xperience-360.com
+
 ## Features
 
 - ✅ Fully accessible (WCAG 2.1 AA compliant)
