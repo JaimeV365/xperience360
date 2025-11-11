@@ -553,13 +553,13 @@ export default function ContactForm() {
           value={formData.country}
           onChange={handleChange}
           disabled={isDetectingCountry}
-          className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-dark text-dark dark:text-white focus:outline-2 focus:outline-offset-2 focus:outline-primary disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-dark text-dark dark:text-white focus:outline-2 focus:outline-offset-2 focus:outline-primary disabled:opacity-50 disabled:cursor-not-allowed emoji-font"
         >
           <option value="">
             {isDetectingCountry ? 'Detecting your location...' : 'Select a country'}
           </option>
           {quickCountries.map((country) => (
-            <option key={country.code} value={country.code}>
+            <option key={country.code} value={country.code} className="emoji-font">
               {getFlagEmoji(country.code)} {country.name}
             </option>
           ))}
@@ -575,11 +575,11 @@ export default function ContactForm() {
               name="countryOther"
               value={formData.countryOther}
               onChange={handleChange}
-              className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-dark text-dark dark:text-white focus:outline-2 focus:outline-offset-2 focus:outline-primary"
+              className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-dark text-dark dark:text-white focus:outline-2 focus:outline-offset-2 focus:outline-primary emoji-font"
             >
               <option value="">Select a country</option>
               {allCountries.map((country) => (
-                <option key={country.code} value={country.name}>
+                <option key={country.code} value={country.name} className="emoji-font">
                   {getFlagEmoji(country.code)} {country.name}
                 </option>
               ))}
