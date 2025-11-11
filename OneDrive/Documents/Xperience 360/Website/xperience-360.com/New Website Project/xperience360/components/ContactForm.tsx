@@ -1,7 +1,49 @@
 'use client'
 
-import { useState, FormEvent, useEffect } from 'react'
+import { useState, FormEvent, useEffect, useRef } from 'react'
 import { Loader2, CheckCircle2, AlertCircle } from 'lucide-react'
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (
+        element: HTMLElement | string,
+        options: {
+          sitekey: string
+          callback?: (token: string) => void
+          'expired-callback'?: () => void
+          'error-callback'?: () => void
+        }
+      ) => string
+      reset: (widgetId?: string) => void
+    }
+  }
+}
+
+type FormDataState = {
+  query: string
+  email: string
+  name: string
+  company: string
+  country: string
+  countryOther: string
+  turnstileToken: string
+}
+
+const TURNSTILE_TEST_SITE_KEY = '1x00000000000000000000AA'
+const turnstileSiteKey =
+  process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || TURNSTILE_TEST_SITE_KEY
+const isUsingTurnstileTestKey = !process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
+
+const createInitialFormState = (): FormDataState => ({
+  query: '',
+  email: '',
+  name: '',
+  company: '',
+  country: '',
+  countryOther: '',
+  turnstileToken: '',
+})
 
 // Quick countries list, sorted alphabetically
 const quickCountries = [
@@ -267,19 +309,139 @@ const allCountries = [
   { code: 'ZW', name: 'Zimbabwe' },
 ]
 
+const findCountryByCode = (code: string) =>
+  quickCountries.find((country) => country.code === code) ||
+  allCountries.find((country) => country.code === code)
+
+const resolveCountryName = (countryCode: string, otherCountryCode: string) => {
+  if (!countryCode) {
+    return ''
+  }
+
+  if (countryCode === 'Other') {
+    return findCountryByCode(otherCountryCode)?.name || otherCountryCode
+  }
+
+  return findCountryByCode(countryCode)?.name || countryCode
+}
+
 export default function ContactForm() {
-  const [formData, setFormData] = useState({
-    query: '',
-    email: '',
-    name: '',
-    company: '',
-    country: '',
-    countryOther: '',
-  })
+  const [formData, setFormData] = useState<FormDataState>(() => createInitialFormState())
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [isDetectingCountry, setIsDetectingCountry] = useState(true)
+  const [submitErrorMessage, setSubmitErrorMessage] = useState<string | null>(null)
+  const [isTurnstileScriptReady, setIsTurnstileScriptReady] = useState(false)
+  const isTurnstileEnabled = Boolean(turnstileSiteKey)
+  const turnstileContainerRef = useRef<HTMLDivElement | null>(null)
+  const turnstileWidgetIdRef = useRef<string | null>(null)
+
+  useEffect(() => {
+    if (isUsingTurnstileTestKey) {
+      console.warn(
+        'Using Cloudflare Turnstile test site key. Set NEXT_PUBLIC_TURNSTILE_SITE_KEY for production deployments.'
+      )
+    }
+  }, [])
+
+  const resetTurnstile = () => {
+    if (!isTurnstileEnabled) {
+      return
+    }
+
+    if (window.turnstile && turnstileWidgetIdRef.current) {
+      window.turnstile.reset(turnstileWidgetIdRef.current)
+    }
+
+    setFormData((prev) => ({ ...prev, turnstileToken: '' }))
+    setErrors((prev) => ({ ...prev, turnstile: '' }))
+  }
+
+  useEffect(() => {
+    if (!isTurnstileEnabled || typeof window === 'undefined') {
+      return
+    }
+
+    const scriptId = 'cf-turnstile-script'
+    const existingScript = document.getElementById(scriptId) as HTMLScriptElement | null
+
+    const handleScriptLoad = () => {
+      setIsTurnstileScriptReady(true)
+    }
+
+    if (existingScript) {
+      if (window.turnstile) {
+        setIsTurnstileScriptReady(true)
+      } else {
+        existingScript.addEventListener('load', handleScriptLoad)
+      }
+
+      return () => {
+        existingScript.removeEventListener('load', handleScriptLoad)
+      }
+    }
+
+    const script = document.createElement('script')
+    script.id = scriptId
+    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'
+    script.async = true
+    script.defer = true
+    const handleScriptError = () => {
+      setErrors((prev) => ({
+        ...prev,
+        turnstile: 'Human verification failed to load. Please refresh the page.',
+      }))
+    }
+
+    script.addEventListener('load', handleScriptLoad)
+    script.addEventListener('error', handleScriptError)
+
+    document.body.appendChild(script)
+
+    return () => {
+      script.removeEventListener('load', handleScriptLoad)
+      script.removeEventListener('error', handleScriptError)
+    }
+  }, [isTurnstileEnabled])
+
+  useEffect(() => {
+    if (!isTurnstileEnabled || !isTurnstileScriptReady || !turnstileContainerRef.current || !window.turnstile) {
+      return
+    }
+
+    turnstileContainerRef.current.innerHTML = ''
+
+    const widgetId = window.turnstile.render(turnstileContainerRef.current, {
+      sitekey: turnstileSiteKey,
+      callback: (token: string) => {
+        setFormData((prev) => ({ ...prev, turnstileToken: token }))
+        setErrors((prev) => ({ ...prev, turnstile: '' }))
+      },
+      'expired-callback': () => {
+        setFormData((prev) => ({ ...prev, turnstileToken: '' }))
+        setErrors((prev) => ({
+          ...prev,
+          turnstile: 'Verification expired. Please try again.',
+        }))
+      },
+      'error-callback': () => {
+        setFormData((prev) => ({ ...prev, turnstileToken: '' }))
+        setErrors((prev) => ({
+          ...prev,
+          turnstile: 'Verification failed. Please try again.',
+        }))
+      },
+    })
+
+    turnstileWidgetIdRef.current = widgetId
+
+    return () => {
+      if (turnstileContainerRef.current) {
+        turnstileContainerRef.current.innerHTML = ''
+      }
+    }
+  }, [isTurnstileEnabled, isTurnstileScriptReady])
 
   // Detect country from IP on component mount
   useEffect(() => {
@@ -328,6 +490,10 @@ export default function ContactForm() {
       newErrors.email = 'Please enter a valid email address'
     }
 
+    if (isTurnstileEnabled && !formData.turnstileToken) {
+      newErrors.turnstile = 'Please verify you are human'
+    }
+
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
@@ -341,45 +507,58 @@ export default function ContactForm() {
 
     setIsSubmitting(true)
     setSubmitStatus('idle')
+    setSubmitErrorMessage(null)
 
     try {
-      // Option 1: Formspree (Recommended for static sites)
-      // Replace YOUR_FORM_ID with your Formspree form ID
-      // Sign up at https://formspree.io and get your form endpoint
-      
-      const formspreeEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/YOUR_FORM_ID'
-      
-      const response = await fetch(formspreeEndpoint, {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          query: formData.query,
-          email: formData.email,
-          name: formData.name,
-          company: formData.company,
-          country: formData.country === 'Other' 
-            ? allCountries.find(c => c.code === formData.countryOther)?.name || formData.countryOther
-            : quickCountries.find(c => c.code === formData.country)?.name || formData.country,
+          query: formData.query.trim(),
+          email: formData.email.trim(),
+          name: formData.name.trim(),
+          company: formData.company.trim(),
+          countryCode: formData.country,
+          countryOtherCode: formData.countryOther,
+          countryName: resolveCountryName(formData.country, formData.countryOther),
+          turnstileToken: formData.turnstileToken,
         }),
       })
 
-      if (response.ok) {
-        setSubmitStatus('success')
-        setFormData({
-          query: '',
-          email: '',
-          name: '',
-          company: '',
-          country: '',
-          countryOther: '',
-        })
-      } else {
+      if (!response.ok) {
+        let message = 'Please try again or refresh the page.'
+        let fieldErrors: Record<string, string> | undefined
+
+        try {
+          const data = await response.json()
+          message = data?.message || message
+          fieldErrors = data?.errors
+        } catch (jsonError) {
+          // Ignore JSON parsing errors – we already have a fallback message
+        }
+
+        if (fieldErrors) {
+          setErrors((prev) => ({ ...prev, ...fieldErrors }))
+        }
+
+        if (fieldErrors?.turnstile && isTurnstileEnabled) {
+          resetTurnstile()
+        }
+
+        setSubmitErrorMessage(message)
         setSubmitStatus('error')
+        return
       }
+
+      setSubmitStatus('success')
+      setSubmitErrorMessage(null)
+      setFormData(createInitialFormState())
+      resetTurnstile()
     } catch (error) {
       console.error('Form submission error:', error)
+      setSubmitErrorMessage('We could not send your message. Please try again later.')
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
@@ -390,10 +569,23 @@ export default function ContactForm() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
+    setFormData((prev) => {
+      const updated = { ...prev, [name]: value }
+
+      if (name === 'country' && value !== 'Other') {
+        updated.countryOther = ''
+      }
+
+      return updated
+    })
     // Clear error when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: '' }))
+    }
+
+    if (submitStatus === 'error') {
+      setSubmitStatus('idle')
+      setSubmitErrorMessage(null)
     }
   }
 
@@ -516,7 +708,7 @@ export default function ContactForm() {
             >
               <option value="">Select a country</option>
               {allCountries.map((country) => (
-                <option key={country.code} value={country.code}>
+                <option key={country.code} value={country.name}>
                   {country.name}
                 </option>
               ))}
@@ -525,10 +717,27 @@ export default function ContactForm() {
         )}
       </div>
 
-      {/* Cloudflare Turnstile - Will be added when Cloudflare is configured */}
-      <div id="cf-turnstile-container">
-        {/* Cloudflare Turnstile widget will be rendered here */}
-        {/* You'll need to add the script and configure it */}
+      {/* Cloudflare Turnstile */}
+      <div>
+        {isTurnstileEnabled ? (
+          <>
+            <div
+              ref={turnstileContainerRef}
+              id="cf-turnstile-container"
+              className="min-h-[80px]"
+              aria-live="polite"
+            />
+            {errors.turnstile && (
+              <p className="mt-2 text-sm text-red-500" role="alert">
+                {errors.turnstile}
+              </p>
+            )}
+          </>
+        ) : (
+          <div className="p-4 border-2 border-amber-300 bg-amber-50 text-sm text-amber-800 rounded-lg">
+            Human verification is not yet configured. Please contact the site administrator.
+          </div>
+        )}
       </div>
 
       {/* Submit Button */}
@@ -580,7 +789,7 @@ export default function ContactForm() {
               Something went wrong
             </p>
             <p className="text-sm text-red-700 dark:text-red-400 mt-1">
-              Please try again or refresh the page.
+              {submitErrorMessage || 'Please try again or refresh the page.'}
             </p>
           </div>
         </div>

@@ -95,28 +95,47 @@ You can transfer your domain to GitHub or another registrar later if preferred.
 
 ## Contact Form Setup
 
-The contact form currently logs submissions. To enable email notifications:
+The contact form now submits through the built-in API route using Resend and Cloudflare Turnstile. You must deploy to a platform that supports Next.js API routes (e.g., Vercel, Netlify Functions, Cloudflare Pages with Functions). A static export alone (GitHub Pages) will not process the form.
 
-### Option 1: Use Resend (Recommended)
+### 1. Configure Resend (Required)
 
 1. Sign up at https://resend.com
-2. Get your API key
-3. Install Resend: `npm install resend`
-4. Update `app/api/contact/route.ts` with Resend code (see comments in file)
-5. Add `RESEND_API_KEY` to GitHub Secrets
+2. Verify a sending domain and create a sender address (e.g., `notifications@xperience-360.com`)
+3. Create an API key
+4. Set these environment variables in your hosting provider:
+   - `RESEND_API_KEY`
+   - `RESEND_FROM_EMAIL` (e.g., `Xperience 360 <notifications@xperience-360.com>`)
+   - `CONTACT_RECIPIENT_EMAIL` (who should receive alerts, e.g., `jaime@xperience-360.com`)
 
-### Option 2: Use Formspree
+If any of these values are missing, the API route will respond with an error and no emails will be sent.
 
-1. Sign up at https://formspree.io
-2. Create a form endpoint
-3. Update the contact form to use Formspree endpoint
-
-### Option 3: Use Cloudflare Turnstile
+### 2. Configure Cloudflare Turnstile
 
 1. Sign up at https://www.cloudflare.com/products/turnstile/
-2. Get your site key and secret key
-3. Add Turnstile widget to contact form
-4. Verify on server side
+2. Create a widget for `xperience-360.com`
+3. Add the keys to your environment:
+   - `NEXT_PUBLIC_TURNSTILE_SITE_KEY`
+   - `TURNSTILE_SECRET_KEY`
+
+For local development the app automatically falls back to Cloudflare’s public test keys so you can test without creating real credentials. Replace them with your real keys before going live.
+
+### 3. Local Development
+
+Create a `.env.local` file with the same variables so the form works locally:
+
+```env
+RESEND_API_KEY=your_resend_api_key
+RESEND_FROM_EMAIL="Xperience 360 <notifications@xperience-360.com>"
+CONTACT_RECIPIENT_EMAIL=jaime@xperience-360.com
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=your_turnstile_site_key   # optional in dev; defaults to Cloudflare test key
+TURNSTILE_SECRET_KEY=your_turnstile_secret_key           # optional in dev; defaults to Cloudflare test key
+```
+
+### 4. Deployment Checklist
+
+- Add the variables above to your production environment (GitHub Actions, Vercel, Netlify, etc.)
+- Deploy using `next build` + `next start` (or the platform equivalent) instead of `next export`
+- Submit a test entry after deployment to confirm that the email arrives and Turnstile verification passes
 
 ## Building and Testing
 
