@@ -44,7 +44,7 @@ const quickCountries = [
   { code: 'ES', name: 'Spain', flag: '🇪🇸' },
   { code: 'CH', name: 'Switzerland', flag: '🇨🇭' },
   { code: 'GB', name: 'United Kingdom', flag: '🇬🇧' },
-  { code: 'US', name: 'United States', flag: '🇺🇸' },
+  { code: 'US', name: 'United States of America', flag: '🇺🇸' },
 ]
 
 // Full world countries list, sorted alphabetically
