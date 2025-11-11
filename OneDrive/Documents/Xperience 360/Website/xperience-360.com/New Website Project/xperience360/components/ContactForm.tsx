@@ -34,17 +34,17 @@ const getFlagEmoji = (code: string) => {
 
 // Quick countries list, sorted alphabetically
 const quickCountries = [
-  { code: 'BE', name: 'Belgium' },
-  { code: 'CA', name: 'Canada' },
-  { code: 'FR', name: 'France' },
-  { code: 'DE', name: 'Germany' },
-  { code: 'IT', name: 'Italy' },
-  { code: 'NL', name: 'Netherlands' },
-  { code: 'PT', name: 'Portugal' },
-  { code: 'ES', name: 'Spain' },
-  { code: 'CH', name: 'Switzerland' },
-  { code: 'GB', name: 'United Kingdom' },
-  { code: 'US', name: 'United States' },
+  { code: 'BE', name: 'Belgium', flag: '🇧🇪' },
+  { code: 'CA', name: 'Canada', flag: '🇨🇦' },
+  { code: 'FR', name: 'France', flag: '🇫🇷' },
+  { code: 'DE', name: 'Germany', flag: '🇩🇪' },
+  { code: 'IT', name: 'Italy', flag: '🇮🇹' },
+  { code: 'NL', name: 'Netherlands', flag: '🇳🇱' },
+  { code: 'PT', name: 'Portugal', flag: '🇵🇹' },
+  { code: 'ES', name: 'Spain', flag: '🇪🇸' },
+  { code: 'CH', name: 'Switzerland', flag: '🇨🇭' },
+  { code: 'GB', name: 'United Kingdom', flag: '🇬🇧' },
+  { code: 'US', name: 'United States', flag: '🇺🇸' },
 ]
 
 // Full world countries list, sorted alphabetically
@@ -560,7 +560,7 @@ export default function ContactForm() {
             {isDetectingCountry ? 'Detecting your location...' : 'Select a country'}
           </option>
           {quickCountries.map((country) => {
-            const flag = getFlagEmoji(country.code)
+            const flag = country.flag || getFlagEmoji(country.code)
             return (
               <option key={country.code} value={country.code} className="emoji-font">
                 {flag ? `${flag} ` : ''}
