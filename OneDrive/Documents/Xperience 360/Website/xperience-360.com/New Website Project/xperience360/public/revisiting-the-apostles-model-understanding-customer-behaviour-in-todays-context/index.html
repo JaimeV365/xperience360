@@ -99,6 +99,18 @@
       }
     </style>
     <script>
+      // Update logo based on dark mode preference
+      function updateLogo() {
+        const logo = document.querySelector('.logo');
+        if (logo) {
+          const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          logo.src = isDark ? '/logo-dark.png' : '/logo.png';
+        }
+      }
+      // Check on load and when preference changes
+      updateLogo();
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateLogo);
+      
       setTimeout(function () {
         window.location.replace("/blog/revisiting-the-apostles-model-understanding-customer-behaviour-in-todays-context/");
       }, 1500);
