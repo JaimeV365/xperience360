@@ -7,22 +7,23 @@
       "Blog"
     ],
     "tags": [
-      "Advocates",
-      "Business KPIs",
-      "BusinessKPIs",
+      "customer retention",
+      "customer acquisition",
+      "discounts",
+      "marketing strategy",
+      "customer lifetime value",
       "CLV",
-      "Customer Lifetime Value",
-      "CustomerLifetimeValue",
-      "Earned Growth Rate",
-      "EarnedGrowthRate",
-      "EGR",
-      "Failure Demand",
-      "FailureDemand",
-      "Marketing",
-      "NES",
-      "Net Easy Score",
-      "NetEasyScore",
-      "Value"
+      "customer loyalty",
+      "pricing strategy",
+      "customer experience",
+      "CX",
+      "business strategy",
+      "revenue optimization",
+      "customer value",
+      "retention vs acquisition",
+      "customer campaigns",
+      "loyalty programs",
+      "customer profitability"
     ]
   },
   {
@@ -33,11 +34,21 @@
       "Blog"
     ],
     "tags": [
-      "CustomerExperience",
-      "CXProgramme",
-      "DarkCX",
+      "customer experience",
+      "CX",
+      "CX programme",
       "NPS",
-      "Survey"
+      "surveys",
+      "customer feedback",
+      "CX strategy",
+      "customer satisfaction",
+      "CX best practices",
+      "customer insights",
+      "feedback collection",
+      "customer metrics",
+      "CX implementation",
+      "customer data",
+      "CX measurement"
     ]
   },
   {
@@ -48,21 +59,23 @@
       "Blog"
     ],
     "tags": [
-      "CallCentreManagement",
-      "CustomerBehaviour",
-      "CustomerEmotions",
-      "CustomerExperience",
-      "CustomerSegmentation",
-      "CustomerService",
-      "CustomerServiceStrategy",
-      "CustomerStress",
-      "CustomerSupport",
-      "CXBestPractices",
-      "CXStrategy",
-      "HandlingDifficultCustomers",
-      "ResourceAllocation",
-      "ServiceEfficiency",
-      "UrgencyInCustomerService"
+      "customer service",
+      "customer segmentation",
+      "customer experience",
+      "CX",
+      "call centre management",
+      "customer behavior",
+      "customer emotions",
+      "customer stress",
+      "customer support",
+      "resource allocation",
+      "service efficiency",
+      "urgency in customer service",
+      "handling difficult customers",
+      "CX strategy",
+      "CX best practices",
+      "customer service strategy",
+      "service optimization"
     ]
   },
   {
@@ -73,20 +86,22 @@
       "Blog"
     ],
     "tags": [
-      "AncientCommerce",
-      "AncientTrade",
-      "BabylonianTablet",
-      "BusinessHistory",
-      "CustomerComplaints",
-      "CustomerExperience",
-      "CustomerFeedback",
-      "CustomerSatisfaction",
-      "CustomerService",
-      "CXBestPractices",
-      "CXHistory",
-      "MerchantStories",
-      "RetailHistory",
-      "TradeHistory"
+      "customer experience",
+      "CX",
+      "CX history",
+      "customer service history",
+      "ancient commerce",
+      "business history",
+      "customer complaints",
+      "customer feedback",
+      "customer satisfaction",
+      "trade history",
+      "retail history",
+      "Babylonian tablet",
+      "customer service evolution",
+      "CX origins",
+      "customer experience evolution",
+      "historical customer service"
     ]
   },
   {
@@ -97,15 +112,23 @@
       "Blog"
     ],
     "tags": [
-      "Advisor",
-      "BiasedFeedback",
-      "Brand",
-      "Charity",
-      "CustomerSatisfaction",
+      "feedback bias",
+      "customer feedback",
       "NPS",
-      "Personal",
-      "PremiumBrand",
-      "Survey"
+      "surveys",
+      "customer satisfaction",
+      "customer insights",
+      "feedback collection",
+      "bias in feedback",
+      "customer experience",
+      "CX",
+      "premium brands",
+      "luxury brands",
+      "financial advisors",
+      "charities",
+      "feedback accuracy",
+      "honest feedback",
+      "customer relationships"
     ]
   },
   {
@@ -115,7 +138,26 @@
     "categories": [
       "Blog"
     ],
-    "tags": []
+    "tags": [
+      "customer experience",
+      "CX",
+      "customer feedback",
+      "surveys",
+      "survey fatigue",
+      "customer listening",
+      "proactive engagement",
+      "customer insights",
+      "complaints",
+      "frontline staff",
+      "customer service",
+      "CX strategy",
+      "customer retention",
+      "customer satisfaction",
+      "feedback collection",
+      "customer communication",
+      "service delivery",
+      "customer engagement"
+    ]
   },
   {
     "slug": "is-the-customer-always-right-navigating-the-wrong-customer-dilemma",
@@ -151,20 +193,23 @@
       "Blog"
     ],
     "tags": [
-      "Advocates",
-      "BrandAdvocates",
-      "CustomerLoyalty",
-      "CustomerBehavior",
-      "CustomerInsights",
-      "EarnedGrowthRate",
-      "LoyaltyMetrics",
-      "NetPromoterScore",
-      "NPRS",
       "NPS",
-      "Promoters",
-      "ReferralMarketing",
-      "Referrals",
-      "TrueNPS"
+      "customer loyalty",
+      "customer behavior",
+      "customer insights",
+      "loyalty metrics",
+      "Net Promoter Score",
+      "promoters",
+      "advocates",
+      "referrals",
+      "referral marketing",
+      "customer experience",
+      "CX",
+      "earned growth rate",
+      "EGR",
+      "customer advocacy",
+      "brand advocates",
+      "loyalty measurement"
     ]
   },
   {
@@ -175,18 +220,21 @@
       "Blog"
     ],
     "tags": [
-      "Advocates",
       "Apostles Model",
-      "brand strategy",
       "customer behavior",
-      "Customer Experience",
+      "customer experience",
+      "CX",
+      "customer loyalty",
+      "customer satisfaction",
       "customer insights",
-      "Customer Loyalty",
-      "Customer Satisfaction",
-      "digital marketing",
-      "loyalty marketing",
+      "loyalty models",
+      "customer segmentation",
       "retention strategies",
-      "service businesses"
+      "brand strategy",
+      "customer advocacy",
+      "loyalty marketing",
+      "service businesses",
+      "customer metrics"
     ]
   },
   {
@@ -223,13 +271,23 @@
       "Blog"
     ],
     "tags": [
-      "customer lifetime value (CLV)",
-      "Customer Loyalty",
-      "Customer Satisfaction",
-      "Earned Growth Rate",
-      "Failure Demand",
-      "NPS (Net Promoter Score)",
-      "Survey"
+      "surveys",
+      "customer feedback",
+      "feedback bias",
+      "NPS",
+      "customer satisfaction",
+      "customer loyalty",
+      "customer lifetime value",
+      "CLV",
+      "earned growth rate",
+      "EGR",
+      "failure demand",
+      "survey design",
+      "customer experience",
+      "CX",
+      "survey bias",
+      "feedback collection",
+      "customer insights"
     ]
   },
   {
@@ -240,18 +298,20 @@
       "Blog"
     ],
     "tags": [
-      "common sense policies",
-      "consumer rights",
-      "customer loyalty",
-      "customer satisfaction",
       "customer experience",
-      "customer service",
-      "CX matters",
-      "lost sales",
+      "CX",
+      "return policies",
       "product returns",
+      "customer service",
+      "customer satisfaction",
+      "customer loyalty",
+      "retail",
+      "consumer rights",
+      "shopping experience",
       "retail fails",
-      "retail lessons",
-      "shopping frustrations"
+      "customer trust",
+      "retail strategy",
+      "customer service policies"
     ]
   },
   {
@@ -262,14 +322,21 @@
       "Blog"
     ],
     "tags": [
-      "CustomerBehavior",
-      "CustomerExperience",
-      "CustomerSatisfaction",
-      "feedbackAnalysis",
-      "LoyaltyMetrics",
-      "NetPromoterScore",
-      "retentionStrategies",
-      "transactionalNps"
+      "NPS",
+      "customer satisfaction",
+      "customer experience",
+      "CX",
+      "customer behavior",
+      "loyalty metrics",
+      "Net Promoter Score",
+      "transactional NPS",
+      "tNPS",
+      "feedback analysis",
+      "retention strategies",
+      "customer metrics",
+      "CX measurement",
+      "customer insights",
+      "survey design"
     ]
   },
   {
@@ -301,16 +368,21 @@
       "Blog"
     ],
     "tags": [
-      "AmazonEffect",
-      "ConsumerRights",
-      "CustomerCentric",
-      "CustomerExperience",
-      "CustomerTrust",
-      "CXStrategy",
-      "EcommerceFail",
-      "OnlineShopping",
-      "RetailExperience",
-      "ReturnPolicy"
+      "customer experience",
+      "CX",
+      "return policies",
+      "customer trust",
+      "customer loyalty",
+      "retail",
+      "ecommerce",
+      "online shopping",
+      "customer service",
+      "CX strategy",
+      "consumer rights",
+      "customer satisfaction",
+      "retail experience",
+      "Amazon effect",
+      "customer centric"
     ]
   },
   {
@@ -343,14 +415,20 @@
       "Blog"
     ],
     "tags": [
-      "customer experience",
-      "customer feedback",
-      "market research",
-      "Net Promoter Score",
       "NPS",
+      "customer experience",
+      "CX",
+      "customer feedback",
+      "surveys",
       "survey design",
       "survey bias",
-      "data quality"
+      "data quality",
+      "Net Promoter Score",
+      "market research",
+      "customer insights",
+      "feedback collection",
+      "survey best practices",
+      "bias in surveys"
     ]
   },
   {
@@ -362,10 +440,18 @@
     ],
     "tags": [
       "customer experience",
+      "CX",
       "outsourcing",
       "delivery services",
       "brand reputation",
-      "customer satisfaction"
+      "customer satisfaction",
+      "third-party providers",
+      "supply chain",
+      "customer service",
+      "brand management",
+      "customer trust",
+      "service delivery",
+      "vendor management"
     ]
   },
   {
@@ -376,12 +462,21 @@
       "Blog"
     ],
     "tags": [
-      "CustomerExperienceSurveys",
-      "CustomerInsights",
-      "CXStrategy",
-      "DataQuality",
-      "FeedbackAnalysis",
-      "SurveyDesignTips"
+      "surveys",
+      "survey design",
+      "customer feedback",
+      "customer experience",
+      "CX",
+      "customer insights",
+      "data quality",
+      "feedback analysis",
+      "CX strategy",
+      "survey questions",
+      "ambiguous questions",
+      "customer surveys",
+      "feedback collection",
+      "survey best practices",
+      "customer data"
     ]
   },
   {
@@ -436,11 +531,20 @@
       "Blog"
     ],
     "tags": [
-      "BusinessStrategy",
-      "CustomerExperience",
-      "CustomerInsights",
-      "CustomerRetention",
-      "feedbackAnalysis"
+      "customer experience",
+      "CX",
+      "business strategy",
+      "customer retention",
+      "customer insights",
+      "feedback analysis",
+      "customer acquisition",
+      "customer engagement",
+      "CX strategy",
+      "business growth",
+      "customer feedback",
+      "customer satisfaction",
+      "customer loyalty",
+      "strategic planning"
     ]
   },
   {

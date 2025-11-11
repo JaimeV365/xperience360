@@ -1,24 +1,7 @@
 'use client'
 
-import { useState, FormEvent, useEffect, useRef } from 'react'
+import { useState, FormEvent, useEffect } from 'react'
 import { Loader2, CheckCircle2, AlertCircle } from 'lucide-react'
-
-declare global {
-  interface Window {
-    turnstile?: {
-      render: (
-        element: HTMLElement | string,
-        options: {
-          sitekey: string
-          callback?: (token: string) => void
-          'expired-callback'?: () => void
-          'error-callback'?: () => void
-        }
-      ) => string
-      reset: (widgetId?: string) => void
-    }
-  }
-}
 
 type FormDataState = {
   query: string
@@ -27,13 +10,7 @@ type FormDataState = {
   company: string
   country: string
   countryOther: string
-  turnstileToken: string
 }
-
-const TURNSTILE_TEST_SITE_KEY = '1x00000000000000000000AA'
-const turnstileSiteKey =
-  process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || TURNSTILE_TEST_SITE_KEY
-const isUsingTurnstileTestKey = !process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
 
 const createInitialFormState = (): FormDataState => ({
   query: '',
@@ -42,7 +19,6 @@ const createInitialFormState = (): FormDataState => ({
   company: '',
   country: '',
   countryOther: '',
-  turnstileToken: '',
 })
 
 // Quick countries list, sorted alphabetically
@@ -332,116 +308,6 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [isDetectingCountry, setIsDetectingCountry] = useState(true)
   const [submitErrorMessage, setSubmitErrorMessage] = useState<string | null>(null)
-  const [isTurnstileScriptReady, setIsTurnstileScriptReady] = useState(false)
-  const isTurnstileEnabled = Boolean(turnstileSiteKey)
-  const turnstileContainerRef = useRef<HTMLDivElement | null>(null)
-  const turnstileWidgetIdRef = useRef<string | null>(null)
-
-  useEffect(() => {
-    if (isUsingTurnstileTestKey) {
-      console.warn(
-        'Using Cloudflare Turnstile test site key. Set NEXT_PUBLIC_TURNSTILE_SITE_KEY for production deployments.'
-      )
-    }
-  }, [])
-
-  const resetTurnstile = () => {
-    if (!isTurnstileEnabled) {
-      return
-    }
-
-    if (window.turnstile && turnstileWidgetIdRef.current) {
-      window.turnstile.reset(turnstileWidgetIdRef.current)
-    }
-
-    setFormData((prev) => ({ ...prev, turnstileToken: '' }))
-    setErrors((prev) => ({ ...prev, turnstile: '' }))
-  }
-
-  useEffect(() => {
-    if (!isTurnstileEnabled || typeof window === 'undefined') {
-      return
-    }
-
-    const scriptId = 'cf-turnstile-script'
-    const existingScript = document.getElementById(scriptId) as HTMLScriptElement | null
-
-    const handleScriptLoad = () => {
-      setIsTurnstileScriptReady(true)
-    }
-
-    if (existingScript) {
-      if (window.turnstile) {
-        setIsTurnstileScriptReady(true)
-      } else {
-        existingScript.addEventListener('load', handleScriptLoad)
-      }
-
-      return () => {
-        existingScript.removeEventListener('load', handleScriptLoad)
-      }
-    }
-
-    const script = document.createElement('script')
-    script.id = scriptId
-    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'
-    script.async = true
-    script.defer = true
-    const handleScriptError = () => {
-      setErrors((prev) => ({
-        ...prev,
-        turnstile: 'Human verification failed to load. Please refresh the page.',
-      }))
-    }
-
-    script.addEventListener('load', handleScriptLoad)
-    script.addEventListener('error', handleScriptError)
-
-    document.body.appendChild(script)
-
-    return () => {
-      script.removeEventListener('load', handleScriptLoad)
-      script.removeEventListener('error', handleScriptError)
-    }
-  }, [isTurnstileEnabled])
-
-  useEffect(() => {
-    if (!isTurnstileEnabled || !isTurnstileScriptReady || !turnstileContainerRef.current || !window.turnstile) {
-      return
-    }
-
-    const container = turnstileContainerRef.current
-
-    container.innerHTML = ''
-
-    const widgetId = window.turnstile.render(container, {
-      sitekey: turnstileSiteKey,
-      callback: (token: string) => {
-        setFormData((prev) => ({ ...prev, turnstileToken: token }))
-        setErrors((prev) => ({ ...prev, turnstile: '' }))
-      },
-      'expired-callback': () => {
-        setFormData((prev) => ({ ...prev, turnstileToken: '' }))
-        setErrors((prev) => ({
-          ...prev,
-          turnstile: 'Verification expired. Please try again.',
-        }))
-      },
-      'error-callback': () => {
-        setFormData((prev) => ({ ...prev, turnstileToken: '' }))
-        setErrors((prev) => ({
-          ...prev,
-          turnstile: 'Verification failed. Please try again.',
-        }))
-      },
-    })
-
-    turnstileWidgetIdRef.current = widgetId
-
-    return () => {
-      container.innerHTML = ''
-    }
-  }, [isTurnstileEnabled, isTurnstileScriptReady])
 
   // Detect country from IP on component mount
   useEffect(() => {
@@ -490,10 +356,6 @@ export default function ContactForm() {
       newErrors.email = 'Please enter a valid email address'
     }
 
-    if (isTurnstileEnabled && !formData.turnstileToken) {
-      newErrors.turnstile = 'Please verify you are human'
-    }
-
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
@@ -510,55 +372,54 @@ export default function ContactForm() {
     setSubmitErrorMessage(null)
 
     try {
-      const response = await fetch('/api/contact', {
+      const formspreeEndpoint =
+      process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xrbrglob'
+
+    if (formspreeEndpoint.endsWith('YOUR_FORM_ID')) {
+        throw new Error(
+          'Formspree endpoint is not configured. Please update NEXT_PUBLIC_FORMSPREE_ENDPOINT.'
+        )
+      }
+
+      const response = await fetch(formspreeEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Accept: 'application/json',
         },
         body: JSON.stringify({
           query: formData.query.trim(),
           email: formData.email.trim(),
           name: formData.name.trim(),
           company: formData.company.trim(),
-          countryCode: formData.country,
-          countryOtherCode: formData.countryOther,
-          countryName: resolveCountryName(formData.country, formData.countryOther),
-          turnstileToken: formData.turnstileToken,
+          country: resolveCountryName(formData.country, formData.countryOther),
         }),
       })
 
       if (!response.ok) {
-        let message = 'Please try again or refresh the page.'
-        let fieldErrors: Record<string, string> | undefined
-
         try {
           const data = await response.json()
-          message = data?.message || message
-          fieldErrors = data?.errors
+          if (data?.errors && Array.isArray(data.errors) && data.errors[0]?.message) {
+            throw new Error(data.errors[0].message)
+          }
+          if (data?.message) {
+            throw new Error(data.message)
+          }
         } catch (jsonError) {
-          // Ignore JSON parsing errors – we already have a fallback message
+          console.error('Form submission error (non-JSON response):', jsonError)
         }
 
-        if (fieldErrors) {
-          setErrors((prev) => ({ ...prev, ...fieldErrors }))
-        }
-
-        if (fieldErrors?.turnstile && isTurnstileEnabled) {
-          resetTurnstile()
-        }
-
-        setSubmitErrorMessage(message)
-        setSubmitStatus('error')
-        return
+        throw new Error('We could not send your message. Please try again later.')
       }
 
       setSubmitStatus('success')
       setSubmitErrorMessage(null)
       setFormData(createInitialFormState())
-      resetTurnstile()
     } catch (error) {
       console.error('Form submission error:', error)
-      setSubmitErrorMessage('We could not send your message. Please try again later.')
+      setSubmitErrorMessage(
+        error instanceof Error ? error.message : 'We could not send your message. Please try again later.'
+      )
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
@@ -713,29 +574,6 @@ export default function ContactForm() {
                 </option>
               ))}
             </select>
-          </div>
-        )}
-      </div>
-
-      {/* Cloudflare Turnstile */}
-      <div>
-        {isTurnstileEnabled ? (
-          <>
-            <div
-              ref={turnstileContainerRef}
-              id="cf-turnstile-container"
-              className="min-h-[80px]"
-              aria-live="polite"
-            />
-            {errors.turnstile && (
-              <p className="mt-2 text-sm text-red-500" role="alert">
-                {errors.turnstile}
-              </p>
-            )}
-          </>
-        ) : (
-          <div className="p-4 border-2 border-amber-300 bg-amber-50 text-sm text-amber-800 rounded-lg">
-            Human verification is not yet configured. Please contact the site administrator.
           </div>
         )}
       </div>

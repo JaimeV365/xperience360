@@ -123,10 +123,7 @@ To:
 You can do this manually or ask me to help copy them all.
 
 ### 3. Set Up Contact Form
-Choose one:
-- **Formspree** (easiest for static sites) - Sign up, get form ID, add to `.env.local`
-- **Resend** - Requires server-side setup
-- **Cloudflare Turnstile** - For spam protection
+- **Formspree (configured by default)** – Sign up, get the form endpoint, and add it to `.env.local` as `NEXT_PUBLIC_FORMSPREE_ENDPOINT`
 
 ### 4. Test Locally
 ```bash
