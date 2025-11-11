@@ -22,6 +22,16 @@ const createInitialFormState = (): FormDataState => ({
 })
 
 
+const getFlagEmoji = (code: string) => {
+  if (!code || code.length !== 2) {
+    return ''
+  }
+
+  return Array.from(code.toUpperCase())
+    .map((char) => String.fromCodePoint(127397 + char.charCodeAt(0)))
+    .join('')
+}
+
 // Quick countries list, sorted alphabetically
 const quickCountries = [
   { code: 'BE', name: 'Belgium' },
@@ -551,6 +561,7 @@ export default function ContactForm() {
           </option>
           {quickCountries.map((country) => (
             <option key={country.code} value={country.code}>
+              {country.code === 'GB' ? `${getFlagEmoji(country.code)} ` : ''}
               {country.name}
             </option>
           ))}
