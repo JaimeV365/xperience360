@@ -554,17 +554,20 @@ export default function ContactForm() {
           value={formData.country}
           onChange={handleChange}
           disabled={isDetectingCountry}
-          className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-dark text-dark dark:text-white focus:outline-2 focus:outline-offset-2 focus:outline-primary disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-dark text-dark dark:text-white focus:outline-2 focus:outline-offset-2 focus:outline-primary disabled:opacity-50 disabled:cursor-not-allowed emoji-font"
         >
           <option value="">
             {isDetectingCountry ? 'Detecting your location...' : 'Select a country'}
           </option>
-          {quickCountries.map((country) => (
-            <option key={country.code} value={country.code}>
-              {country.code === 'GB' ? `${getFlagEmoji(country.code)} ` : ''}
-              {country.name}
-            </option>
-          ))}
+          {quickCountries.map((country) => {
+            const flag = getFlagEmoji(country.code)
+            return (
+              <option key={country.code} value={country.code} className="emoji-font">
+                {flag ? `${flag} ` : ''}
+                {country.name}
+              </option>
+            )
+          })}
           <option value="Other">Other</option>
         </select>
         {formData.country === 'Other' && (
