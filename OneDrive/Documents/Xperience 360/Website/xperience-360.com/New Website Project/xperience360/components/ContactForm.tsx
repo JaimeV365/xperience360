@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, FormEvent, useEffect } from 'react'
-import { Loader2, CheckCircle2, AlertCircle } from 'lucide-react'
+import { useState, FormEvent, useEffect, useRef } from 'react'
+import { Loader2, CheckCircle2, AlertCircle, ChevronDown } from 'lucide-react'
 
 type FormDataState = {
   query: string
@@ -319,6 +319,8 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [isDetectingCountry, setIsDetectingCountry] = useState(true)
   const [submitErrorMessage, setSubmitErrorMessage] = useState<string | null>(null)
+  const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false)
+  const countryDropdownRef = useRef<HTMLDivElement>(null)
 
   // Detect country from IP on component mount
   useEffect(() => {
@@ -353,6 +355,20 @@ export default function ContactForm() {
     detectCountry()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (countryDropdownRef.current && !countryDropdownRef.current.contains(event.target as Node)) {
+        setIsCountryDropdownOpen(false)
+      }
+    }
+
+    if (isCountryDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+      return () => document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isCountryDropdownOpen])
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {}
@@ -461,6 +477,35 @@ export default function ContactForm() {
     }
   }
 
+  const handleCountrySelect = (countryCode: string) => {
+    setFormData((prev) => {
+      const updated = { ...prev, country: countryCode }
+      if (countryCode !== 'Other') {
+        updated.countryOther = ''
+      }
+      return updated
+    })
+    setIsCountryDropdownOpen(false)
+    if (errors.country) {
+      setErrors((prev) => ({ ...prev, country: '' }))
+    }
+  }
+
+  const getSelectedCountryDisplay = () => {
+    if (!formData.country) {
+      return isDetectingCountry ? 'Detecting your location...' : 'Select a country'
+    }
+    if (formData.country === 'Other') {
+      return 'Other'
+    }
+    const country = quickCountries.find(c => c.code === formData.country)
+    if (country) {
+      const flag = country.flag || getFlagEmoji(country.code)
+      return flag ? `${flag} ${country.name}` : country.name
+    }
+    return 'Select a country'
+  }
+
   return (
     <form onSubmit={handleSubmit} className="space-y-6" noValidate>
       {/* Query/Comment - Required */}
@@ -548,28 +593,49 @@ export default function ContactForm() {
         <label htmlFor="country" className="block text-sm font-semibold mb-2">
           Country
         </label>
-        <select
-          id="country"
-          name="country"
-          value={formData.country}
-          onChange={handleChange}
-          disabled={isDetectingCountry}
-          className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-dark text-dark dark:text-white focus:outline-2 focus:outline-offset-2 focus:outline-primary disabled:opacity-50 disabled:cursor-not-allowed emoji-font"
-        >
-          <option value="">
-            {isDetectingCountry ? 'Detecting your location...' : 'Select a country'}
-          </option>
-          {quickCountries.map((country) => {
-            const flag = country.flag || getFlagEmoji(country.code)
-            return (
-              <option key={country.code} value={country.code} className="emoji-font">
-                {flag ? `${flag} ` : ''}
-                {country.name}
-              </option>
-            )
-          })}
-          <option value="Other">Other</option>
-        </select>
+        <div ref={countryDropdownRef} className="relative">
+          <button
+            type="button"
+            id="country"
+            onClick={() => !isDetectingCountry && setIsCountryDropdownOpen(!isCountryDropdownOpen)}
+            disabled={isDetectingCountry}
+            className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-dark text-dark dark:text-white focus:outline-2 focus:outline-offset-2 focus:outline-primary disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-between text-left emoji-font"
+            aria-haspopup="listbox"
+            aria-expanded={isCountryDropdownOpen}
+          >
+            <span className="emoji-font">{getSelectedCountryDisplay()}</span>
+            <ChevronDown className={`w-5 h-5 transition-transform ${isCountryDropdownOpen ? 'rotate-180' : ''}`} />
+          </button>
+          {isCountryDropdownOpen && !isDetectingCountry && (
+            <div className="absolute z-50 w-full mt-1 bg-white dark:bg-dark border-2 border-gray-300 dark:border-gray-600 rounded-lg shadow-lg max-h-60 overflow-auto">
+              {quickCountries.map((country) => {
+                const flag = country.flag || getFlagEmoji(country.code)
+                return (
+                  <button
+                    key={country.code}
+                    type="button"
+                    onClick={() => handleCountrySelect(country.code)}
+                    className={`w-full px-4 py-3 text-left hover:bg-gray-100 dark:hover:bg-gray-800 focus:bg-gray-100 dark:focus:bg-gray-800 focus:outline-none flex items-center gap-2 emoji-font ${
+                      formData.country === country.code ? 'bg-primary/10 dark:bg-primary/20' : ''
+                    }`}
+                  >
+                    <span className="emoji-font text-xl">{flag || ''}</span>
+                    <span>{country.name}</span>
+                  </button>
+                )
+              })}
+              <button
+                type="button"
+                onClick={() => handleCountrySelect('Other')}
+                className={`w-full px-4 py-3 text-left hover:bg-gray-100 dark:hover:bg-gray-800 focus:bg-gray-100 dark:focus:bg-gray-800 focus:outline-none ${
+                  formData.country === 'Other' ? 'bg-primary/10 dark:bg-primary/20' : ''
+                }`}
+              >
+                Other
+              </button>
+            </div>
+          )}
+        </div>
         {formData.country === 'Other' && (
           <div className="mt-4">
             <label htmlFor="countryOther" className="block text-sm font-semibold mb-2">
