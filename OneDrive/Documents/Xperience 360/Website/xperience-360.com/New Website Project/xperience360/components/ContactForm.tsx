@@ -21,19 +21,29 @@ const createInitialFormState = (): FormDataState => ({
   countryOther: '',
 })
 
+const getFlagEmoji = (code: string) => {
+  if (!code || code.length !== 2) {
+    return ''
+  }
+
+  return Array.from(code.toUpperCase())
+    .map((char) => String.fromCodePoint(127397 + char.charCodeAt(0)))
+    .join('')
+}
+
 // Quick countries list, sorted alphabetically
 const quickCountries = [
-  { code: 'BE', name: 'Belgium', flag: '🇧🇪' },
-  { code: 'CA', name: 'Canada', flag: '🇨🇦' },
-  { code: 'FR', name: 'France', flag: '🇫🇷' },
-  { code: 'DE', name: 'Germany', flag: '🇩🇪' },
-  { code: 'IT', name: 'Italy', flag: '🇮🇹' },
-  { code: 'NL', name: 'Netherlands', flag: '🇳🇱' },
-  { code: 'PT', name: 'Portugal', flag: '🇵🇹' },
-  { code: 'ES', name: 'Spain', flag: '🇪🇸' },
-  { code: 'CH', name: 'Switzerland', flag: '🇨🇭' },
-  { code: 'GB', name: 'United Kingdom', flag: '🇬🇧' },
-  { code: 'US', name: 'USA', flag: '🇺🇸' },
+  { code: 'BE', name: 'Belgium' },
+  { code: 'CA', name: 'Canada' },
+  { code: 'FR', name: 'France' },
+  { code: 'DE', name: 'Germany' },
+  { code: 'IT', name: 'Italy' },
+  { code: 'NL', name: 'Netherlands' },
+  { code: 'PT', name: 'Portugal' },
+  { code: 'ES', name: 'Spain' },
+  { code: 'CH', name: 'Switzerland' },
+  { code: 'GB', name: 'United Kingdom' },
+  { code: 'US', name: 'United States' },
 ]
 
 // Full world countries list, sorted alphabetically
@@ -550,7 +560,7 @@ export default function ContactForm() {
           </option>
           {quickCountries.map((country) => (
             <option key={country.code} value={country.code}>
-              {country.flag} {country.name}
+              {getFlagEmoji(country.code)} {country.name}
             </option>
           ))}
           <option value="Other">Other</option>
@@ -570,7 +580,7 @@ export default function ContactForm() {
               <option value="">Select a country</option>
               {allCountries.map((country) => (
                 <option key={country.code} value={country.name}>
-                  {country.name}
+                  {getFlagEmoji(country.code)} {country.name}
                 </option>
               ))}
             </select>
