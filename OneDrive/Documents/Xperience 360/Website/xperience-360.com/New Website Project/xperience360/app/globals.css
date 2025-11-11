@@ -31,6 +31,11 @@
     scroll-behavior: smooth;
   }
   
+  .emoji-font {
+    font-family: 'Twemoji Mozilla', 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
+  }
+  
   /* Logo filter for dark mode - convert to mustard yellow (#c49102) */
   .dark .logo-filter {
     /* Cross-browser filter support */
