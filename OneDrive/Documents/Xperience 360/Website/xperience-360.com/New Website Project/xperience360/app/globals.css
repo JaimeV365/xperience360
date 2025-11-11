@@ -32,8 +32,9 @@
   }
   
   .emoji-font {
-    font-family: 'Twemoji Mozilla', 'Apple Color Emoji', 'Segoe UI Emoji',
-      'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
+    font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+      'Noto Color Emoji', 'EmojiOne Color', 'Android Emoji',
+      system-ui, -apple-system, sans-serif;
   }
   
   /* Logo filter for dark mode - convert to mustard yellow (#c49102) */
