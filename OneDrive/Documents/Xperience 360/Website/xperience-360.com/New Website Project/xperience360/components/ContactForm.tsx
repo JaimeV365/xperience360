@@ -410,9 +410,11 @@ export default function ContactForm() {
       return
     }
 
-    turnstileContainerRef.current.innerHTML = ''
+    const container = turnstileContainerRef.current
 
-    const widgetId = window.turnstile.render(turnstileContainerRef.current, {
+    container.innerHTML = ''
+
+    const widgetId = window.turnstile.render(container, {
       sitekey: turnstileSiteKey,
       callback: (token: string) => {
         setFormData((prev) => ({ ...prev, turnstileToken: token }))
@@ -437,9 +439,7 @@ export default function ContactForm() {
     turnstileWidgetIdRef.current = widgetId
 
     return () => {
-      if (turnstileContainerRef.current) {
-        turnstileContainerRef.current.innerHTML = ''
-      }
+      container.innerHTML = ''
     }
   }, [isTurnstileEnabled, isTurnstileScriptReady])
 

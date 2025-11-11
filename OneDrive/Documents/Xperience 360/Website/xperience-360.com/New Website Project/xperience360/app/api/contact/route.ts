@@ -166,7 +166,7 @@ export async function POST(request: Request) {
     await resend.emails.send({
       from: resendFrom,
       to: formatRecipients(resendRecipients),
-      reply_to: trimmedEmail,
+      replyTo: trimmedEmail,
       subject: 'New contact form submission',
       html,
       text,
