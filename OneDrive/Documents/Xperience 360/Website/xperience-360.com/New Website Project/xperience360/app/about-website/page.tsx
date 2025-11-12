@@ -59,7 +59,7 @@ export default function AboutWebsitePage() {
             </div>
             <h2 className="heading-3 mb-4">No Tracking</h2>
             <p className="body-text">
-              We don&apos;t track your behavior, collect analytics, or share your data with third parties. 
+              We don&apos;t track your behaviour, collect analytics, or share your data with third parties. 
               Your visit is completely private—we don&apos;t know what pages you view or how long you stay.
             </p>
           </div>

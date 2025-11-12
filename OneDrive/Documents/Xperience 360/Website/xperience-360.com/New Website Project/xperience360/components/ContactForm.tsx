@@ -408,6 +408,8 @@ export default function ContactForm() {
         )
       }
 
+      // Note: Recipient email (jaime-valle@outlook.com) is configured in Formspree dashboard
+      // and is not exposed in client-side code to prevent spam
       const response = await fetch(formspreeEndpoint, {
         method: 'POST',
         headers: {

@@ -93,7 +93,7 @@ export default function ServicesPage() {
       features: [
         'NPS* programme design',
         'Survey methodology',
-        'Question design and optimization',
+        'Question design and optimisation',
         'Response analysis',
         'Action planning frameworks',
       ],
@@ -102,7 +102,7 @@ export default function ServicesPage() {
       id: 'cx-technology',
       icon: BarChart3,
       title: 'CX Technology Implementation',
-      description: 'Leverage the right technology to support your CX initiatives. We help you select, implement, and optimize CX platforms.',
+      description: 'Leverage the right technology to support your CX initiatives. We help you select, implement, and optimise CX platforms.',
       features: [
         'Technology assessment',
         'Platform selection',
