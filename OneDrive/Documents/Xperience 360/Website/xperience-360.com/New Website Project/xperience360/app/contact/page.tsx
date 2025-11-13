@@ -36,7 +36,7 @@ export default function ContactPage() {
           <div className="mt-12 p-6 bg-primary/5 dark:bg-primary/10 rounded-lg text-center">
             <h3 className="font-semibold text-lg mb-2">Response Time</h3>
             <p className="body-text">
-              We aim to respond to all inquiries within 24-48 hours during business days.
+              We aim to respond to all inquiries within 2 working days.
             </p>
           </div>
         </div>

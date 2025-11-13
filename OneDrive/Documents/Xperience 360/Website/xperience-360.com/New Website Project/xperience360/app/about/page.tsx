@@ -59,19 +59,12 @@ export default function AboutPage() {
             We understand cultural nuances and local market dynamics, ensuring that your 
             customer experience strategies resonate with your target audience.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-            <div className="text-center p-4 bg-primary/10 dark:bg-primary/20 rounded-lg">
-              <p className="text-2xl font-bold text-primary mb-2">English</p>
-            </div>
-            <div className="text-center p-4 bg-primary/10 dark:bg-primary/20 rounded-lg">
-              <p className="text-2xl font-bold text-primary mb-2">Spanish</p>
-            </div>
-            <div className="text-center p-4 bg-primary/10 dark:bg-primary/20 rounded-lg">
-              <p className="text-2xl font-bold text-primary mb-2">French</p>
-            </div>
-            <div className="text-center p-4 bg-primary/10 dark:bg-primary/20 rounded-lg">
-              <p className="text-2xl font-bold text-primary mb-2">Italian</p>
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-8">
+            {['English', 'Spanish', 'French', 'Italian', 'German', 'Portuguese'].map((language) => (
+              <div key={language} className="text-center p-4 bg-primary/10 dark:bg-primary/20 rounded-lg">
+                <p className="text-2xl font-bold text-primary mb-2">{language}</p>
+              </div>
+            ))}
           </div>
         </section>
 

@@ -17,8 +17,7 @@ export default function BlogPage() {
         <div className="mb-12">
           <h1 className="heading-1 mb-4">Blog & Insights</h1>
           <p className="body-text text-xl max-w-3xl">
-            Thought leadership, research, and practical insights on customer experience, 
-            employee experience, and business strategy.
+            Thought leadership, research, and practical insights on customer experience, employee experience, and business strategy.
           </p>
         </div>
 

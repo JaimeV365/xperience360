@@ -64,7 +64,7 @@ export default function Footer() {
               href="/contact"
               className="text-gray-300 hover:text-primary transition-colors duration-200 focus:outline-2 focus:outline-offset-2 focus:outline-primary focus:rounded"
             >
-              Use our contact form to get in touch.
+              Contact form
             </Link>
           </div>
         </div>

@@ -691,7 +691,7 @@ export default function ContactForm() {
               Message sent successfully!
             </p>
             <p className="text-sm text-green-700 dark:text-green-400 mt-1">
-              We&apos;ll get back to you within 24-48 hours.
+              We&apos;ll get back to you within 2 working days.
             </p>
           </div>
         </div>
