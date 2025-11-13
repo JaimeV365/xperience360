@@ -8,6 +8,50 @@ import { toString } from 'mdast-util-to-string'
 
 const postsDirectory = path.join(process.cwd(), 'content', 'blog')
 
+function applyTrademarkCompliance(text: string): string {
+  if (!text) return text
+
+  let updated = text
+
+  let npsApplied = false
+  updated = updated.replace(/\bNPS\b(?!®)/gi, (match) => {
+    if (npsApplied) {
+      return match
+    }
+    npsApplied = true
+    return `${match}®`
+  })
+
+  let netPromoterScoreApplied = false
+  updated = updated.replace(/Net Promoter Score(?!\s*(?:℠|SM))/gi, (match) => {
+    if (netPromoterScoreApplied) {
+      return match
+    }
+    netPromoterScoreApplied = true
+    return `${match}℠`
+  })
+
+  let netPromoterSystemApplied = false
+  updated = updated.replace(/Net Promoter System(?!\s*(?:℠|SM))/gi, (match) => {
+    if (netPromoterSystemApplied) {
+      return match
+    }
+    netPromoterSystemApplied = true
+    return `${match}℠`
+  })
+
+  let netPromoterApplied = false
+  updated = updated.replace(/Net Promoter(?!\s*(?:Score|System|Prism|[A-Za-z]))(?!®)/gi, (match) => {
+    if (netPromoterApplied) {
+      return match
+    }
+    netPromoterApplied = true
+    return `${match}®`
+  })
+
+  return updated
+}
+
 export interface Post {
   slug: string
   title: string
@@ -124,17 +168,14 @@ export function getAllPosts(): Post[] {
         .replace(/\u00F0\u009F\u0091\u008E/g, '👎')
         .replace(/\u00E2\u009C\u0085/g, '✅')
 
-      // Add NPS* to title if NPS is mentioned
-      let title = data.title || ''
-      if (title && /\bNPS\b(?![\*®])/i.test(title)) {
-        title = title.replace(/\bNPS\b(?![\*®])/gi, 'NPS*')
-      }
+      let title = applyTrademarkCompliance(data.title || '')
+      const excerpt = applyTrademarkCompliance(data.excerpt || '')
       
       return {
         slug,
-        title: title,
+        title,
         date: data.date || '',
-        excerpt: data.excerpt || '',
+        excerpt,
         content: fixedContent,
         author: data.author === 'xperience-360.com' ? 'Jaime Valle' : (data.author || 'Jaime Valle'),
         categories: data.categories || [],
@@ -235,17 +276,14 @@ export function getPostBySlug(slug: string): Post | null {
       .replace(/\u00F0\u009F\u0091\u008E/g, '👎')
       .replace(/\u00E2\u009C\u0085/g, '✅')
 
-    // Add NPS* to title if NPS is mentioned
-    let title = data.title || ''
-    if (title && /\bNPS\b(?![\*®])/i.test(title)) {
-      title = title.replace(/\bNPS\b(?![\*®])/gi, 'NPS*')
-    }
+    let title = applyTrademarkCompliance(data.title || '')
+    const excerpt = applyTrademarkCompliance(data.excerpt || '')
     
     return {
       slug,
-      title: title,
+      title,
       date: data.date || '',
-      excerpt: data.excerpt || '',
+      excerpt,
       content: fixedContent,
       author: data.author === 'xperience-360.com' ? 'Jaime Valle' : (data.author || 'Jaime Valle'),
       categories: data.categories || [],
@@ -613,33 +651,65 @@ export async function getPostContent(content: string): Promise<string> {
     '</p><p class="mt-6 mb-6">$1</p>'
   )
   
-  // Add NPS trademark references - replace NPS with NPS* (but not if already has * or ®)
-  // Be careful not to replace inside HTML tags
-  let addedNpsAsterisk = false
+  const isInsideTag = (source: string, index: number) => {
+    const before = source.substring(Math.max(0, index - 100), index)
+    return before.includes('<') && !before.includes('>')
+  }
 
-  htmlContent = htmlContent.replace(/\bNPS\b(?![\*®-])/gi, (match, offset, string) => {
-    // Check if we're inside an HTML tag
-    const before = string.substring(Math.max(0, offset - 50), offset)
-    const after = string.substring(offset, Math.min(string.length, offset + 50))
-    // If there's a < before and > after, we're in a tag - don't replace
-    if (before.includes('<') && !before.includes('>')) {
+  let addedNpsRegistered = false
+  htmlContent = htmlContent.replace(/\bNPS\b(?![®-])/gi, (match, offset, string) => {
+    if (isInsideTag(string, offset)) {
       return match
     }
-    if (!addedNpsAsterisk) {
-      addedNpsAsterisk = true
-      return 'NPS*'
+    if (!addedNpsRegistered) {
+      addedNpsRegistered = true
+      return `${match}®`
     }
     return match
   })
-  
-  // Check if NPS is mentioned in the content (after processing)
-  const hasNPS = /NPS/i.test(htmlContent)
-  
-  // Add trademark disclaimer at the end if NPS is mentioned
-  // But check if disclaimer already exists to avoid duplicates
-  if (hasNPS && !htmlContent.includes('Net Promoter®')) {
-    const disclaimer = '<p class="text-sm text-gray-600 dark:text-gray-400 mt-8 pt-6 border-t border-gray-300 dark:border-gray-700"><em>*Net Promoter®, Net Promoter System®, Net Promoter Score® and NPS® are registered trademarks of Bain & Company, Inc., Fred Reichheld and Satmetrix Systems, Inc.</em></p>'
-    htmlContent = htmlContent + disclaimer
+
+  let addedNetPromoterScoreSM = false
+  htmlContent = htmlContent.replace(/Net Promoter Score(?!\s*(?:℠|SM))/gi, (match, offset, string) => {
+    if (isInsideTag(string, offset)) {
+      return match
+    }
+    if (!addedNetPromoterScoreSM) {
+      addedNetPromoterScoreSM = true
+      return `${match}℠`
+    }
+    return match
+  })
+
+  let addedNetPromoterSystemSM = false
+  htmlContent = htmlContent.replace(/Net Promoter System(?!\s*(?:℠|SM))/gi, (match, offset, string) => {
+    if (isInsideTag(string, offset)) {
+      return match
+    }
+    if (!addedNetPromoterSystemSM) {
+      addedNetPromoterSystemSM = true
+      return `${match}℠`
+    }
+    return match
+  })
+
+  let addedNetPromoterRegistered = false
+  htmlContent = htmlContent.replace(/Net Promoter(?!\s*(?:Score|System|Prism|[A-Za-z]))(?!®)/gi, (match, offset, string) => {
+    if (isInsideTag(string, offset)) {
+      return match
+    }
+    if (!addedNetPromoterRegistered) {
+      addedNetPromoterRegistered = true
+      return `${match}®`
+    }
+    return match
+  })
+
+  const hasTrademarkTerm = /(NPS|Net Promoter)/i.test(htmlContent)
+  const attributionText = 'Net Promoter®, NPS®, NPS Prism®, and the NPS-related emoticons are registered trademarks of Bain & Company, Inc., NICE Systems, Inc., and Fred Reichheld. Net Promoter Score℠ and Net Promoter System℠ are service marks of Bain & Company, Inc., NICE Systems, Inc., and Fred Reichheld.'
+  const attributionHtml = `<p class="text-sm text-gray-600 dark:text-gray-400 mt-8 pt-6 border-t border-gray-300 dark:border-gray-700"><em>${attributionText}</em></p>`
+
+  if (hasTrademarkTerm && !htmlContent.includes(attributionText)) {
+    htmlContent = htmlContent + attributionHtml
   }
   
   return htmlContent

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: '%s | Xperience 360',
   },
   description: 'Expert CX and EX consulting services. Transform your customer and employee experience with proven strategies and decades of expertise.',
-  keywords: ['customer experience', 'CX consulting', 'employee experience', 'EX consulting', 'NPS*', 'customer satisfaction'],
+  keywords: ['customer experience', 'CX consulting', 'employee experience', 'EX consulting', 'NPS®', 'customer satisfaction'],
   authors: [{ name: 'Jaime Valle' }],
   creator: 'Xperience 360',
   publisher: 'Xperience 360',

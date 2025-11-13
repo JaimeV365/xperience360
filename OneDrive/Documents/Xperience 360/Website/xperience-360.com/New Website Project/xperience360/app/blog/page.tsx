@@ -5,7 +5,7 @@ import Search from '@/components/Search'
 
 export const metadata: Metadata = {
   title: 'Blog | Customer Experience Insights & Thought Leadership',
-  description: 'Expert insights on customer experience, employee experience, NPS*, surveys, and business strategy from Xperience 360.',
+  description: 'Expert insights on customer experience, employee experience, NPS®, surveys, and business strategy from Xperience 360.',
 }
 
 export default function BlogPage() {

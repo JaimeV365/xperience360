@@ -251,7 +251,7 @@ By combining Kano's theoretical principles with evidence-based analysis, CX team
 
 The question isn't whether the Kano model applies to customer experience — it's how we can apply it more intelligently than traditional surveys allow. After all, there's no need to ask customers hypothetical questions when their actual behaviour tells a much clearer story.
 
-<em><sup>*</sup>Net Promoter<sup>®</sup>, Net Promoter System<sup>®</sup>, Net Promoter Score<sup>®</sup> and NPS<sup>®</sup> are registered trademarks of Bain & Company, Inc., Fred Reichheld and Satmetrix Systems, Inc.</em>
+<em>Net Promoter®, NPS®, NPS Prism®, and the NPS-related emoticons are registered trademarks of Bain & Company, Inc., NICE Systems, Inc., and Fred Reichheld. Net Promoter Score℠ and Net Promoter System℠ are service marks of Bain & Company, Inc., NICE Systems, Inc., and Fred Reichheld.</em>
 
 ### References
 

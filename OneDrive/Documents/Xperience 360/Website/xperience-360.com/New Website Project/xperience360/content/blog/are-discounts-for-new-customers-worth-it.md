@@ -332,11 +332,11 @@ Nevertheless, in actual business implementations, ROI would be an essential metr
 
 **Net Promoter Score (NPS)**
 
-NPSÂ® measures the likelihood of customers recommending your brand to others. This KPI is closely linked to customer sentiment, which can suffer if loyal existing customers feel overlooked in favour of new ones. Offering better deals exclusively to new customers can make long-standing customers feel undervalued, potentially turning them into detractors or worse, leaving you for your competitors.
+NPS® measures the likelihood of customers recommending your brand to others. This KPI is closely linked to customer sentiment, which can suffer if loyal existing customers feel overlooked in favour of new ones. Offering better deals exclusively to new customers can make long-standing customers feel undervalued, potentially turning them into detractors or worse, leaving you for your competitors.
 
 As a result, your overall NPS may drop. Instead of encouraging positive, organic word-of-mouth, the brand risks negative feedback that damages its reputation and undermines acquisition efforts. Balancing incentives for both new and existing customers is essential to maintain high NPS scores and ensure customer advocacy.
 
-*Net PromoterÂ®, NPSÂ®, NPS PrismÂ®, and the NPS-related emoticons are registered trademarks of Bain & Company, Inc., NICE Systems, Inc., and Fred Reichheld. Net Promoter ScoreSM and Net Promoter SystemSM are service marks of Bain & Company, Inc., NICE Systems, Inc., and Fred Reichheld.*
+*Net Promoter®, NPS®, NPS Prism®, and the NPS-related emoticons are registered trademarks of Bain & Company, Inc., NICE Systems, Inc., and Fred Reichheld. Net Promoter Score℠ and Net Promoter System℠ are service marks of Bain & Company, Inc., NICE Systems, Inc., and Fred Reichheld.*
 
 ### **Summary**
 
