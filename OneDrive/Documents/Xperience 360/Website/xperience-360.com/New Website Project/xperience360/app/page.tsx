@@ -9,7 +9,7 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Transform Your Customer Experience Into Competitive Advantage',
   description: 'Expert CX & EX consulting services. Discover how our tailored programmes can boost revenue and build lasting customer relationships.',
-  keywords: ['customer experience', 'CX consulting', 'employee experience', 'EX consulting', 'NPS®', 'customer satisfaction', 'CX strategy', 'customer insights'],
+  keywords: ['customer experience', 'CX consulting', 'employee experience', 'EX consulting', 'customer satisfaction', 'CX strategy', 'customer insights'],
   openGraph: {
     title: 'Xperience 360 | Transform Your Customer Experience Into Competitive Advantage',
     description: 'Expert CX & EX consulting services. Discover how our tailored programmes can boost revenue and build lasting customer relationships.',
@@ -120,14 +120,14 @@ export default function HomePage() {
               <div className="w-16 h-16 bg-primary/10 dark:bg-primary/20 rounded-lg flex items-center justify-center mb-6">
                 <MessageSquare className="w-8 h-8 text-primary" aria-hidden="true" />
               </div>
-            <h3 className="heading-3 mb-4">NPS® & Survey Design</h3>
+            <h3 className="heading-3 mb-4">Survey Design</h3>
               <p className="body-text mb-6">
                 Create effective measurement programmes that deliver actionable insights.
               </p>
               <Link
-                href="/services#nps-surveys"
+                href="/services#survey-design"
                 className="link-primary font-semibold"
-                aria-label="Learn more about NPS® and Survey Design services"
+                aria-label="Learn more about Survey Design services"
               >
                 Learn more →
               </Link>
@@ -192,14 +192,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* NPS Trademark Disclaimer */}
-      <div className="py-8 bg-white dark:bg-dark">
-        <div className="container-custom">
-          <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
-            <em>Net Promoter®, NPS®, NPS Prism®, and the NPS-related emoticons are registered trademarks of Bain & Company, Inc., NICE Systems, Inc., and Fred Reichheld. Net Promoter Score℠ and Net Promoter System℠ are service marks of Bain & Company, Inc., NICE Systems, Inc., and Fred Reichheld.</em>
-          </p>
-        </div>
-      </div>
     </>
   )
 }

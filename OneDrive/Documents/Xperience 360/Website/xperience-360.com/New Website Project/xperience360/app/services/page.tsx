@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     'EX services',
     'customer experience consulting',
     'employee experience consulting',
-    'NPS® surveys',
+    'survey design',
     'CX strategy',
     'customer journey mapping',
     'customer journey design',
@@ -86,12 +86,12 @@ export default function ServicesPage() {
       ],
     },
     {
-      id: 'nps-surveys',
+      id: 'survey-design',
       icon: MessageSquare,
-      title: 'NPS® & Survey Design',
+      title: 'Survey Design',
       description: 'Create effective measurement programmes that deliver actionable insights. Avoid survey fatigue and get data that drives decisions.',
       features: [
-        'NPS® programme design',
+        'Survey programme design',
         'Survey methodology',
         'Question design and optimisation',
         'Response analysis',
@@ -180,7 +180,7 @@ export default function ServicesPage() {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'NPS® & Survey Design',
+            name: 'Survey Design',
             description: 'Create effective measurement programmes that deliver actionable insights.',
           },
         },
@@ -361,12 +361,6 @@ export default function ServicesPage() {
           </Link>
         </section>
 
-        {/* NPS Trademark Disclaimer */}
-        <div className="mt-12 pt-8 border-t border-gray-300 dark:border-gray-700">
-          <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
-            <em>Net Promoter®, NPS®, NPS Prism®, and the NPS-related emoticons are registered trademarks of Bain & Company, Inc., NICE Systems, Inc., and Fred Reichheld. Net Promoter Score℠ and Net Promoter System℠ are service marks of Bain & Company, Inc., NICE Systems, Inc., and Fred Reichheld.</em>
-          </p>
-        </div>
       </div>
     </div>
   )
