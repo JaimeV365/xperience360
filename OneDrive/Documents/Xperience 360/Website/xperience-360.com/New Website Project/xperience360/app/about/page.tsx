@@ -62,7 +62,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-8">
             {['English', 'Spanish', 'French', 'Italian', 'German', 'Portuguese'].map((language) => (
               <div key={language} className="text-center p-4 bg-primary/10 dark:bg-primary/20 rounded-lg">
-                <p className="text-xl sm:text-2xl font-bold text-primary mb-2 break-words leading-tight">
+                <p className="text-base font-bold text-primary mb-2">
                   {language}
                 </p>
               </div>
