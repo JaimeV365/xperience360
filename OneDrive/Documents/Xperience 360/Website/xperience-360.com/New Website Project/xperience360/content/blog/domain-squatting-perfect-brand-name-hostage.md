@@ -14,8 +14,6 @@ I have lost count of the number of times I have seen **domain squatting** play o
 
 We were not competing against another company. We were faced with a ransom note. Needless to say, it left us feeling utterly deflated.
 
-Consider one of my previous employers, for example: a perfectly respectable, mid-sized business that eventually paid a substantial sum to secure the .com domain from one of these pirates, simply because someone felt that their old .net domain was no longer fit for their marketing strategy. At the time, it felt like the "grown-up" move. In hindsight, however, we all agree that the money would have been far better spent on improving the customer journey.
-
 Am I the only one who thinks this feels more like a subtle tax on ambition than a market?
 
 ### How the System Operates
@@ -32,7 +30,9 @@ Even major companies have paid the price. In 2017, Walmart paid $9 million for S
 
 Meanwhile, the brands that are winning today never paid a penny in ransom.
 
-BBC.co.uk, Claude.ai and Wikipedia.org are a few examples of well-established companies that built their success without a branded, heavily advertised .com domain. However, it is true that they may own the .com domain for redirection purposes. Other examples are proton.me, GitHub.io and bit.ly. There are plenty of them!
+Consider one of my previous employers, for example: a perfectly respectable, mid-sized business that eventually paid a substantial sum to secure the .com domain from one of these pirates, simply because someone felt that their old .net domain was no longer fit for their marketing strategy. At the time, it felt like the "grown-up" move. In hindsight, however, we all agree that the money would have been far better spent on improving the customer journey.
+
+GitHub.io, bit.ly and proton.me are a few examples of well-established companies that built their success without a branded, heavily advertised .com domain. However, it is true that they may own the .com domain for redirection purposes. Other examples are BBC.co.uk, Claude.ai and Wikipedia.org. There are plenty of them!
 
 Customers do not notice the extension. What they notice is speed, clarity and trust.
 
@@ -40,7 +40,7 @@ Customers do not notice the extension. What they notice is speed, clarity and tr
 
 You are not powerless. Here is how we and many other teams are choosing to respond:
 
-- **Choose a modern extension and wear it proudly.** **Alternative domain extensions** such as .app, .io, .ai, .co and .cx often feel fresher and more relevant than another recycled .com.
+- **Choose a modern extension and wear it proudly.** **Alternative domain extensions** such as .app, .io, .ai, .co and others often feel fresher and more relevant than another recycled .com.
 - **Turn your story into brand folklore.** Nothing is more powerful in marketing than turning a bumpy story into a success. "We were quoted £18,000 by domain speculators, but we chose an .app domain for £6 and invested the difference in improving our service." People love that kind of honesty.
 - **Secure matching handles everywhere else on day one** – consistency across platforms matters far more than the domain ending.
 - **Consider trademarks as a way to reduce the pirate's leverage.**
@@ -50,11 +50,11 @@ Linking to related CX strategy lessons—such as focusing on the real customer p
 
 ### The True Advantage
 
-Paying thousands, tens of thousands or even millions for a domain name does not make you look serious. In fact, it could now be seen as a sign of outdated thinking. Brands that walk away emerge lighter, sharper and more authentic.
+Paying thousands, tens of thousands or even millions for a domain name does not make you look more serious. In fact, it could now be seen as a sign of outdated thinking. Brands that walk away emerge lighter, sharper and more authentic.
 
 So, if you are currently looking at a parked page, close the tab. Your real name is still available. It might end in .app or .io, and that is no longer a compromise — it is a declaration of independence.
 
-Count me in the rebellion: we are done feeding the .com pirates and their favourite auction houses, one renegade domain at a time. It is half tongue-in-cheek and half deadly serious — and entirely liberating.
+Count me in the rebellion; we are done feeding the .com pirates. From now on, every single pound goes straight into building a better name, a sharper brand, and a customer experience that actually matters.
 
 The not-dot-com revolution has begun!
 
