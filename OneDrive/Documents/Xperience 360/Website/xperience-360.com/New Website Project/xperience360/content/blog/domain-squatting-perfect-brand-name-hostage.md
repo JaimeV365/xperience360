@@ -30,7 +30,7 @@ Even major companies have paid the price. In 2017, Walmart paid $9 million for S
 
 Meanwhile, the brands that are winning today never paid a penny in ransom.
 
-Consider one of my previous employers, for example: a perfectly respectable, mid-sized business that eventually paid a substantial sum to secure the .com domain from one of these pirates, simply because someone felt that their old .net domain was no longer fit for their marketing strategy. At the time, it felt like the "grown-up" move. In hindsight, however, we all agree that the money would have been far better spent on improving the customer journey.
+I will give you an example of a perfectly respectable, mid-sized business I know well. They eventually paid a substantial sum to secure the .com domain from one of these pirates, simply because someone felt that their old .net domain was no longer fit for their marketing strategy. At the time, this seemed like the sensible thing to do. With hindsight, however, we all agree that the money would have been far better spent on improving the customer journey.
 
 GitHub.io, bit.ly and proton.me are a few examples of well-established companies that built their success without a branded, heavily advertised .com domain. However, it is true that they may own the .com domain for redirection purposes. Other examples are BBC.co.uk, Claude.ai and Wikipedia.org. There are plenty of them!
 
