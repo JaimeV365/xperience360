@@ -16,7 +16,7 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPosts()
+  const posts = getAllPosts(true) // Include future posts for static generation
   return posts.map((post) => ({
     slug: post.slug,
   }))

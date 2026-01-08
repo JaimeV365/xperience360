@@ -65,7 +65,7 @@ export interface Post {
   readingTime?: number
 }
 
-export function getAllPosts(): Post[] {
+export function getAllPosts(includeFuture: boolean = false): Post[] {
   if (!fs.existsSync(postsDirectory)) {
     return []
   }
@@ -185,7 +185,22 @@ export function getAllPosts(): Post[] {
       }
     })
 
-  return allPostsData.sort((a, b) => {
+  // Filter out posts with future dates (scheduled posts) unless includeFuture is true
+  let filteredPosts = allPostsData
+  if (!includeFuture) {
+    const now = new Date()
+    filteredPosts = allPostsData.filter((post) => {
+      if (!post.date) return false // Exclude posts without dates
+      try {
+        const postDate = new Date(post.date)
+        return postDate <= now
+      } catch {
+        return false // Exclude posts with invalid dates
+      }
+    })
+  }
+
+  return filteredPosts.sort((a, b) => {
     if (a.date < b.date) {
       return 1
     } else {
