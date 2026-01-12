@@ -1,6 +1,6 @@
 ---
 title: "Should All Websites Ditch the Cookie Jar? Rethinking Privacy in a Tracking-Obsessed World"
-date: "2026-02-01 10:00:00"
+date: "2025-12-27 10:00:00"
 slug: "should-all-websites-ditch-the-cookie-jar-rethinking-privacy-in-a-tracking-obsessed-world"
 author: "Jaime Valle"
 excerpt: "In a world obsessed with tracking, should websites abandon cookies? Exploring how privacy-by-design creates better customer experiences and why transparency matters more than data collection."
