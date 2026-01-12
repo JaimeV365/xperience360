@@ -1,6 +1,6 @@
 ---
 title: "Building Emotional Bonds with Customers: Beyond Generic Advice to True Personalisation"
-date: "2025-01-15 10:00:00"
+date: "2026-01-15 10:00:00"
 slug: "building-emotional-bonds-with-customers-beyond-generic-advice-to-true-personalisation"
 author: "Jaime Valle"
 excerpt: "How do we build a bond with our customers? This is not a small question. While generic advice from keynote speakers may be valid, it often doesn't apply to your particular case. The answer lies in personalisation—creating bonds one customer at a time, one experience at a time."
