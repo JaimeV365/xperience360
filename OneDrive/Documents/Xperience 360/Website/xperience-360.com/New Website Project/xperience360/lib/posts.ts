@@ -189,11 +189,15 @@ export function getAllPosts(includeFuture: boolean = false): Post[] {
   let filteredPosts = allPostsData
   if (!includeFuture) {
     const now = new Date()
+    // Set to start of today (midnight) to avoid timezone and time-of-day issues
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate())
     filteredPosts = allPostsData.filter((post) => {
       if (!post.date) return false // Exclude posts without dates
       try {
         const postDate = new Date(post.date)
-        return postDate <= now
+        // Set to start of post date (midnight) for fair comparison
+        const postDateStart = new Date(postDate.getFullYear(), postDate.getMonth(), postDate.getDate())
+        return postDateStart <= today
       } catch {
         return false // Exclude posts with invalid dates
       }
