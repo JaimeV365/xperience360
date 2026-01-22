@@ -3,7 +3,7 @@ title: "Why Forcing Survey Responses Destroys Your Data"
 date: "2025-04-28 14:14:21"
 slug: "why-forcing-survey-responses-destroys-your-data"
 author: "Jaime Valle"
-excerpt: "I received a survey from the BBC today. Probably like millions of other people. Like everyone else, I don't respond to every survey in my inbox, but I actually wanted to participate in this one."
+excerpt: "Forcing mandatory survey responses destroys data quality and creates survey fatigue. Learn why allowing optional questions improves response rates, data accuracy, and customer experience in market research and customer feedback collection."
 categories: ["Blog"]
 tags: ["BBC", "customer experience", "customer feedback", "CX mistakes", "data quality", "market research", "research best practices", "survey design", "survey errors", "survey fatigue"]
 ---

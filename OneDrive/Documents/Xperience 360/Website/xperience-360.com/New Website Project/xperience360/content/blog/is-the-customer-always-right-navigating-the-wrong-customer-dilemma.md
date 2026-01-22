@@ -3,7 +3,7 @@ title: "Is the Customer Always Right? Navigating the 'Wrong Customer' Dilemma"
 date: "2025-02-28 09:55:55"
 slug: "is-the-customer-always-right-navigating-the-wrong-customer-dilemma"
 author: "Jaime Valle"
-excerpt: "At one point, I asked the panel about what Jones and Sasser1 defined as \"wrong customers\" and one of the experts, quite rightly said: \"We have to be careful how we label our customers. We surely don't have \"wrong\" customers\"."
+excerpt: "Explore the 'wrong customer' dilemma in customer experience strategy. Discover why customer segmentation matters, how to prevent difficult customer relationships, and strategies for managing unprofitable customers while maintaining customer centricity."
 categories: ["Blog"]
 tags: ["customer centricity", "customer complaints", "customer engagement", "customer expectations", "customer experience", "customer feedback", "customer journey mapping", "customer loyalty", "customer onboarding", "customer profitability", "customer relations", "customer retention", "customer satisfaction", "customer segmentation", "customer service", "wrong customers"]
 ---

@@ -2,8 +2,8 @@
 title: "Are Discounts for New Customers Worth It?"
 date: "2024-12-14 15:03:10"
 slug: "are-discounts-for-new-customers-worth-it"
-author: "xperience-360.com"
-excerpt: ""
+author: "Jaime Valle"
+excerpt: "Is it more profitable to acquire new customers or retain existing ones? Discover why new-customer-only discounts may hurt your bottom line and learn data-driven strategies for customer retention vs acquisition campaigns."
 categories: ["Blog"]
 tags: ["customer retention", "customer acquisition", "discounts", "marketing strategy", "customer lifetime value", "CLV", "customer loyalty", "pricing strategy", "customer experience", "CX", "business strategy", "revenue optimization", "customer value", "retention vs acquisition", "customer campaigns", "loyalty programs", "customer profitability"]
 ---

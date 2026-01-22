@@ -5,7 +5,7 @@ slug: "think-before-surveying-customers"
 author: "Jaime Valle"
 excerpt: "Learn how to effectively gather feedback through surveys and other effective methods to improve customer experience, gaining valuable insights."
 categories: ["Blog"]
-tags: ["complaints", "feedback", "insight", "process", "Survey", "customer experience", "CX", "survey fatigue", "customer feedback"]
+tags: ["complaints", "feedback", "insight", "process", "surveys", "customer experience", "CX", "survey fatigue", "customer feedback", "survey design", "feedback collection", "customer insights"]
 ---
 
 A lot of my clients approach me asking for advice and support to launch surveys to gather insights and feedback from their customers.

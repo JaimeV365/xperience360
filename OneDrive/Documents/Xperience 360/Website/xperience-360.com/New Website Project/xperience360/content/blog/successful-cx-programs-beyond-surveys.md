@@ -3,9 +3,9 @@ title: "Successful CX Programs Beyond Surveys"
 date: "2025-06-29 19:05:00"
 slug: "successful-cx-programs-beyond-surveys"
 author: "Jaime Valle"
-excerpt: "Your colleagues in Sales, Marketing, Customer Service, Product, Ops and other departments play a role in Customer Experience. They don't necessarily want to be told how to do their jobs, but they probably want tools that help them do their jobs better, more effectively and more appreciated."
+excerpt: "Build successful CX programs that go beyond surveys. Learn how cross-functional teams, customer intimacy, and employee engagement create sustainable customer experience improvements that drive revenue and customer retention."
 categories: ["Blog"]
-tags: ["Continuous Improvement", "Cross Functional Teams", "customer experience", "customer feedback", "customer insights", "customer intimacy", "customer retention", "customer trust", "CX champions", "CX communication", "CX programme", "employee involvement", "internal engagement", "Kaizen", "survey strategy", "voice of customer"]
+tags: ["continuous improvement", "cross functional teams", "customer experience", "CX", "customer feedback", "customer insights", "customer intimacy", "customer retention", "customer trust", "CX champions", "CX communication", "CX programme", "CX program", "employee involvement", "internal engagement", "Kaizen", "survey strategy", "voice of customer", "customer experience strategy", "CX best practices"]
 ---
 
 I had a meeting with a big global client the other day about how we keep improving the current CX programme in the future. They are very keen to run another wave of the usual customer satisfaction survey, which, of course, we can do for them. At the same time, we were actually encouraging them to go further and complement their surveys with other activities to maximise the impact of the entire CX programme.
