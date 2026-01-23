@@ -62,7 +62,9 @@ The good news? The .com domain was available. The bad news? It belonged to a dom
 
 ### **A Journey Worth Taking**
 
-It really has been a journey, and I think this is the project I'm most proud of in my career. It may not change the world or put my face on the cover of Forbes magazine. Nevertheless, I am the happiest and proudest man on earth to have accomplished this project. I must thank my family for giving me the space to work on this project and finally having seen it published in 2025. I could never have finished it without their help. And, at the same time, I'm sure that, without them, I could have finished it much sooner!
+It really has been a journey, and I think this is the project I'm most proud of in my career. It may not change the world or put my face on the cover of Forbes magazine. Nevertheless, I am the happiest and proudest man on earth to have accomplished this project.
+
+I must thank my family for giving me the space to work on this project and finally having seen it published in 2025. I could never have finished it without their help. And, at the same time, I'm sure that, without them, I could have finished it much sooner!
 
 ### **References**
 
