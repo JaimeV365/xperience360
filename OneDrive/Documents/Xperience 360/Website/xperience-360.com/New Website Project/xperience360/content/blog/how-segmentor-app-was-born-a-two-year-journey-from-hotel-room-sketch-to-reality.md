@@ -44,7 +44,7 @@ Having invested such a huge amount of time makes me incredibly proud to see it f
 
 The project involved making important strategic decisions about the website's structure, language, availability, features, price and legal matters. One of the great things about developing your own website is that you have complete control over how you express your personality and beliefs through the platform.
 
-Personally, I'm sick of the number of websites that require you to accept cookies just to view them. Or those that won't load properly when a VPN or ad blocker is in use. I wrote about this in a previous [article](/blog/should-all-websites-ditch-the-cookie-jar-rethinking-privacy-in-a-tracking-obsessed-world/). Since I had full control over my own website, I decided to create a cookie-free website that doesn't track anything at all, follows WCAG 2.2 AA accessibility guidelines and provides a smooth, fair user experience.
+Personally, I'm sick of the number of websites that require you to accept cookies just to view them. Or those that won't load properly when a VPN or ad blocker is in use. I wrote about this in a previous <a href="/blog/should-all-websites-ditch-the-cookie-jar-rethinking-privacy-in-a-tracking-obsessed-world/" style="text-decoration: underline; font-weight: 600;">article</a>. Since I had full control over my own website, I decided to create a cookie-free website that doesn't track anything at all, follows WCAG 2.2 AA accessibility guidelines and provides a smooth, fair user experience.
 
 ### **The Data Integrity Question**
 
