@@ -38,8 +38,6 @@ So, while the project is indeed based on that initial two-dimensional graph, it 
 
 I've had countless conversations with various AI models. They're brilliant at helping you to crystallise your thoughts. If you ask for suggestions, they can generate ideas as if they were business models, complete with pros and cons, timelines, and assessments of actual value. These long conversations make you think as if you were talking to a friend or colleague, which is fascinating. I must admit that I'm one of those people who thank an AI chatbot, celebrate successes, and sometimes reprimand them and demand more focus.
 
-It really has been a journey, and I must thank my family for giving me the space to work on this project and finally publish it at the end of 2025. I could never have finished it without their help. And, at the same time, I am sure that, without them, I could have finished it much sooner!
-
 Having invested such a huge amount of time makes me incredibly proud to see it finally published. It's been a bumpy road. At some points, I got completely stuck and had to revert to a backup version, completely wasting the last few days or even weeks of work. But the moment of publication made it all worthwhile. I remember the night after I published the website, sitting on my bed and checking it on my phone. From that moment on, anybody could experience it in the same way. That really was something special.
 
 ### **Building a Website That Aligns with My Values**
@@ -64,7 +62,7 @@ The good news? The .com domain was available. The bad news? It belonged to a dom
 
 ### **A Journey Worth Taking**
 
-It really has been a journey, and I think this is the project I'm most proud of in my professional life, at least. It may not change the world or put my face on the cover of Forbes magazine. Nevertheless, I am the happiest and proudest man on earth to have accomplished this project.
+It really has been a journey, and I think this is the project I'm most proud of in my career. It may not change the world or put my face on the cover of Forbes magazine. Nevertheless, I am the happiest and proudest man on earth to have accomplished this project. I must thank my family for giving me the space to work on this project and finally having seen it published in 2025. I could never have finished it without their help. And, at the same time, I'm sure that, without them, I could have finished it much sooner!
 
 ### **References**
 
