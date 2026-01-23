@@ -12,7 +12,7 @@ It must have been around October 2023 when one of my clients asked if Qualtrics 
 
 I remember sitting on the edge of a hotel bed in Paris with my laptop balanced on my knees, desperately searching online for an Apostles Model builder. Nothing existed. I tried building something myself, first in Excel and then in HTML. Neither looked good enough nor really met the requirements for presenting the four quadrants in a compelling way with meaningful customisation options.
 
-At the time, I didn't realise that the simple sketch I produced in HTML that night would form the basis of what <a href="https://segmentor.app/about" target="_blank" rel="noopener noreferrer">segmentor.app</a> has become.
+At the time, I didn't realise that the simple sketch I produced in HTML that night would form the basis of what <a href="https://segmentor.app/about" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; font-weight: 600;">segmentor.app</a> has become.
 
 ### **Two Years of Nights, Weekends, and Holidays**
 
