@@ -1,6 +1,6 @@
 ---
 title: "Why an NPS of 95 Is a Red Flag, Not a Trophy"
-date: "2026-04-30"
+date: "2026-04-01"
 slug: "why-an-nps-of-95-is-a-red-flag-not-a-trophy"
 author: "Jaime Valle"
 excerpt: "An NPS of 95 sounds impressive, but it's technically dubious and often a sign of a gamed system rather than genuine customer loyalty. Learn why such 'perfect' scores should raise questions, not applause."
