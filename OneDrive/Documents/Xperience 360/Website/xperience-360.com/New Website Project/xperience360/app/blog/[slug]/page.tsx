@@ -181,6 +181,16 @@ export default async function BlogPostPage({ params }: PageProps) {
 
         {/* Custom styles for download links */}
         <style dangerouslySetInnerHTML={{__html: `
+          .prose a:not(.download-link) {
+            color: #c49102;
+            text-decoration: underline;
+            text-decoration-color: rgba(196, 145, 2, 0.5);
+            transition: color 0.2s, text-decoration-color 0.2s;
+          }
+          .prose a:not(.download-link):hover {
+            color: #a37802;
+            text-decoration-color: #a37802;
+          }
           .prose a.download-link::before {
             content: '';
             display: inline-block;
@@ -203,7 +213,6 @@ export default async function BlogPostPage({ params }: PageProps) {
             [&_h3]:text-3xl [&_h3]:sm:text-4xl [&_h3]:font-normal [&_h3]:leading-tight [&_h3]:mb-8
             prose-figcaption:text-sm prose-figcaption:text-gray-600 prose-figcaption:dark:text-gray-400 prose-figcaption:italic prose-figcaption:text-left prose-figcaption:mt-2 prose-figcaption:mb-6
             [&_p.mb-6]:mb-6 [&_p.mb-2]:mb-2 [&_p.mt-6]:mt-6
-            prose-a:text-primary prose-a:underline prose-a:decoration-primary/50 hover:prose-a:decoration-primary hover:prose-a:text-primary-dark prose-a:transition-colors
             prose-strong:text-dark prose-strong:dark:text-white prose-strong:font-semibold
             [&_li_strong]:font-bold [&_li_strong]:text-dark [&_li_strong]:dark:text-white
             prose-img:rounded-lg prose-img:shadow-lg prose-img:my-4 prose-img:max-w-full prose-img:mx-auto prose-img:block
