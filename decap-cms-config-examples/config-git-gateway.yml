@@ -1,0 +1,42 @@
+# Decap CMS Configuration - Git Gateway (Netlify)
+# This is the RECOMMENDED configuration for production use with Netlify Identity
+
+# Use Git Gateway (works with Netlify Identity)
+backend:
+  name: git-gateway
+  branch: main
+
+# Media (images) configuration
+media_folder: public/images/blog
+public_folder: /images/blog
+
+# Blog posts collection
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    sortable_fields: ["date", "title"]
+    view_filters:
+      - { label: "Date", field: "date", pattern: ".*" }
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Publish Date", name: "date", widget: "datetime", required: true, format: "YYYY-MM-DD HH:mm:ss", date_format: "YYYY-MM-DD", time_format: "HH:mm:ss" }
+      - { label: "Slug", name: "slug", widget: "string", required: true, hint: "URL-friendly version of title (e.g., my-blog-post)" }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false, hint: "Brief description for listings and SEO" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false, hint: "URL or path to image (e.g., /images/blog/post-image.jpg)" }
+      - { label: "Author", name: "author", widget: "string", default: "Jaime Valle", required: true }
+      - { label: "Categories", name: "categories", widget: "list", required: false, default: ["Blog"] }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Body", name: "body", widget: "markdown", required: true }
+
+# INSTRUCTIONS TO USE THIS CONFIG:
+# 1. Set up Netlify Identity and Git Gateway (see DECAP-CMS-SETUP.md)
+# 2. Add Netlify Identity widget to public/admin/index.html
+# 3. Replace the contents of public/admin/config.yml with this file
+# 4. Commit and push to GitHub
+# 5. Visit https://xperience-360.com/admin to start using Decap CMS!
