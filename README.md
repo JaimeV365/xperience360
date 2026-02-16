@@ -11,6 +11,7 @@ This repository contains comprehensive guides for publishing blog content using 
 | Guide | Purpose | Time |
 |-------|---------|------|
 | **[SOLUTION-SUMMARY.md](SOLUTION-SUMMARY.md)** | Overview of the solution | 5 min |
+| **[DECISION-GUIDE.md](DECISION-GUIDE.md)** ⭐ | Help choosing the right method | 10 min |
 | **[README-CONTENT-MANAGEMENT.md](README-CONTENT-MANAGEMENT.md)** | Complete guide to all options | 10 min |
 | **[QUICK-START-CHECKLIST.md](QUICK-START-CHECKLIST.md)** | Action checklist & timeline | 5 min |
 | **[GITHUB-EDITING-GUIDE.md](GITHUB-EDITING-GUIDE.md)** | Step-by-step GitHub web editing | 15 min |
@@ -24,8 +25,13 @@ This repository contains comprehensive guides for publishing blog content using 
 ### New to these guides?
 
 1. Read **[SOLUTION-SUMMARY.md](SOLUTION-SUMMARY.md)** first (5 min)
-2. Then try **[GITHUB-EDITING-GUIDE.md](GITHUB-EDITING-GUIDE.md)** (works immediately)
-3. Use **[QUICK-START-CHECKLIST.md](QUICK-START-CHECKLIST.md)** to track progress
+2. Use **[DECISION-GUIDE.md](DECISION-GUIDE.md)** to choose your method (10 min) ⭐
+3. Then try **[GITHUB-EDITING-GUIDE.md](GITHUB-EDITING-GUIDE.md)** (works immediately)
+4. Use **[QUICK-START-CHECKLIST.md](QUICK-START-CHECKLIST.md)** to track progress
+
+### Not sure which method to use?
+
+Read **[DECISION-GUIDE.md](DECISION-GUIDE.md)** - it will help you choose! ⭐
 
 ### Want to publish RIGHT NOW?
 
